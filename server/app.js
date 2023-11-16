@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express'
 const app = express();
 
 //Importing npm packeges
@@ -10,10 +10,10 @@ import multer from 'multer';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import url from 'url';
 
 /* CONFIGURATIONS */
-const __filename = fileURLToPath(import.meta.url); 
+const __filename = url.fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 dotenv.config();
 app.use(express.json());
@@ -36,9 +36,21 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage });
 
+/*
+const PORT = process.env.PORT || 4001;
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser : true,
+    useUnifiedTopology : true,
+}).then(()=>{
+    app.listen(PORT, () =>{
+        console.log(`Server is running at http://localhost:${PORT}`);
+    })
+});
+*/
+
 //Default URL
 app.use("/", (req, res)=>{
     res.send("Invalid URL!");
 });
 
-module.exports = app;
+export default app;
