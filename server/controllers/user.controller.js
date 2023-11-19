@@ -44,3 +44,33 @@ export const getUserFriends = async(req, res) =>{
         res.status(404).json({ msg: err.message });
     }
 }
+
+export const getUserName = async(req, res) =>{
+    try {
+        
+        const {userid} = req.params;
+        const userNameByIDQuery = `SELECT username FROM accountinfo 
+                                   WHERE userid = '${userid}'`;
+        const userNameByIDQueryResult = await pool.query(userNameByIDQuery);
+
+        res.status(201).json(userNameByIDQueryResult.rows[0]);
+
+    } catch (err) {
+        res.status(404).json({ msg: err.message });
+    }
+}
+
+export const getUserProfileImage = async(req, res) =>{
+    try {
+        
+        const {userid} = req.params;
+        const userImageByIDQuery = `SELECT profileimage FROM accountinfo 
+                                    WHERE userid = '${userid}'`;
+        const userImageByIDQueryResult = await pool.query(userImageByIDQuery);
+
+        res.status(201).json(userImageByIDQueryResult.rows[0]);
+
+    } catch (err) {
+        res.status(404).json({ msg: err.message });
+    }
+}
