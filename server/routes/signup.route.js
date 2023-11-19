@@ -1,8 +1,8 @@
 import express from 'express'
 const router = express.Router();
-
 import multer from 'multer';
-import { register } from '../controllers/register.controller';
+
+import { signUp } from '../controllers/signup.controller';
 
 /* FILE STORAGE MIDDLEWARE*/
 const storage = multer.diskStorage({
@@ -13,8 +13,8 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 });
-const upload = multer({storage });
+const upload = multer({ storage });
 
-router.post("/", upload.single("picture"), register);
+router.post("/", upload.single("picture"), signUp);
 
 export default router;

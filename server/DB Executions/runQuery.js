@@ -1,13 +1,12 @@
-const pool = require("./dbConnection");
+import {pool} from './dbConnection'
 
-
-const runQuery = async(query) =>{
+export const runQuery = async(req, res) =>{
     try {
         const queryResult = await pool.query(query);
+        console.log("Printing from runquery function");
+        console.log(queryResult.rows);
     } catch (err) {
         console.error(err.message);
     }
     return queryResult;
 }
-
-module.exports = {runQuery};

@@ -34,7 +34,7 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 });
-const upload = multer({storage });
+export const upload = multer({storage });
 
 /*
 const PORT = process.env.PORT || 4001;
@@ -47,6 +47,18 @@ mongoose.connect(process.env.MONGO_URL, {
     })
 });
 */
+
+//Importing the routes
+import authRouter from './routes/auth.route';
+app.use("/register", authRouter);
+
+import loginRouter from './routes/login.route';
+app.use("/login", loginRouter);
+
+import signUpRouter from './routes/signup.route';
+app.use("/signup", signUpRouter);
+
+
 
 //Default URL
 app.use("/", (req, res)=>{

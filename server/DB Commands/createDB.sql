@@ -10,9 +10,9 @@ CREATE TABLE AccountInfo(
     profileImage VARCHAR(255),
     location VARCHAR(255),
     occupation VARCHAR(255),
-    viewedProfile NUMBER,
-    impressions NUMBER,
-    friends
+    viewedProfile NUMERIC,
+    impressions NUMERIC,
+    friends VARCHAR[]
 );
 
 CREATE TABLE Posts(
@@ -35,3 +35,6 @@ CREATE TABLE Images(
     userID VARCHAR(255),
     imagePath VARCHAR(255)
 );
+
+INSERT INTO accountinfo(userid, firstname, lastname, email, "password", profileimage, "location", occupation, viewedprofile, impressions, friends)
+VALUES ('Luna Lovegood', 'Luna', 'Lovegood', 'll@raven.com', 'lovegood', '', 'ny', 'student', 0, 0, '{"Potter", "Granger", "Weasley"}')
