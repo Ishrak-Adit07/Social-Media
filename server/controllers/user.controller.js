@@ -22,7 +22,8 @@ export const getUserFriends = async(req, res) =>{
     try {
         
         const {userid} = req.params;
-        const findFriendsByIDQuery = `SELECT friends FROM accountinfo 
+        const findFriendsByIDQuery = `SELECT friends 
+                                      FROM accountinfo 
                                       WHERE userid = '${userid}'`;
         const findFriendsByIDQueryResult = await pool.query(findFriendsByIDQuery);
 
@@ -38,7 +39,7 @@ export const getUserFriends = async(req, res) =>{
         //res.status(201).json(FriendSPartialInfo);
         */
 
-        res.status(201).json(findFriendsByIDQueryResult.rows[0]);
+        res.status(201).json(findFriendsByIDQueryResult.rows);
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
@@ -72,5 +73,43 @@ export const getUserProfileImage = async(req, res) =>{
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
+    }
+}
+
+
+export const addNewFriend = async(req, res) =>{
+    try {
+        
+        const {userid} = req.params;
+        const {newFriendsID} = req.body;
+
+        const addNewFriendQuery = `UPDATE accountInfo
+                                   SET friends = ARRAY_APPEND(friends, '${newFriendsID}')
+                                   WHERE userid = '${userid}'`;
+        const addNewFriendQueryResult = await pool.query(addNewFriendQuery);
+
+        
+        res.status(201).json({userid, newFriendsID});
+
+    } catch (err) {
+        res.status(404).json( {msg: err.message} );
+    }
+}
+
+export const deleteFriend = async(req, res) =>{
+    try {
+
+        const {userid} = req.params;
+        const {deletedFriendID} = req.body;
+        
+        const deleteFriendByIDQuery = `UPDATE accountInfo
+                                       SET friends = ARRAY_REMOVE(friends, '${deletedFriendID}')
+                                       WHERE userid = '${userid}'`;
+        const deleteFriendByIDQueryResult = await pool.query(deleteFriendByIDQuery);
+        
+        res.status(201).json({userid, deletedFriendID});
+
+    } catch (err) {
+        res.status(404).json( {msg: err.message} );
     }
 }
