@@ -1,6 +1,6 @@
 import express from "express";
 import { verifyToken } from "../middlewares/authToken";
-import { addNewFriend, deleteFriend, getUser, getUserFriends, getUserName, getUserProfileImage } from "../controllers/user.controller";
+import { addNewFriend, deleteFriend, getUser, getUserFriends, getUserName, getUserProfileImage, verifynReturnFriend } from "../controllers/user.controller";
 const router = express.Router();
 
 //Reminder to use verifyToken
@@ -18,6 +18,10 @@ router.get("/:userid/name", getUserName);
 //Reminder to use verifyToken
 //Get userProfileImage by userID
 router.get("/:userid/profileImage", getUserProfileImage);
+
+//Reminder to use verifyToken
+//Verify and Return friend Information
+router.get("/:userid/verifyFriend", verifynReturnFriend);
 
 //Reminder to use verifyToken
 //Add new friend to user's friendList

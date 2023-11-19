@@ -50,7 +50,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
 //Importing the routes
 import authRouter from './routes/auth.route';
-app.use("/register", authRouter);
+app.use("/register", upload.single("picture"), authRouter);
 
 import loginRouter from './routes/login.route';
 app.use("/login", loginRouter);
@@ -60,6 +60,9 @@ app.use("/signup", signUpRouter);
 
 import userRouter from './routes/user.route';
 app.use("/user", userRouter);
+
+import postRouter from './routes/posts.route';
+app.use("/posts", upload.single("picture"), postRouter);
 
 
 //Default URL

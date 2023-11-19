@@ -1,32 +1,32 @@
 export const user = {
     userID : {
         type : String,
-        require : true
+        required : true
     },
     userName : {
         type : String,
-        require : true,
+        required : true,
         max : 50
     },
     firstName : {
         type : String,
-        require : true,
+        required : true,
         max : 50
     },
     lastName : {
         type : String,
-        require : true,
+        required : true,
         max : 50
     },
     email : {
         type : String,
-        require : true,
+        required : true,
         max : 50,
         unique : true
     },
     password : {
         type : String,
-        require : true,
+        required : true,
         max : 50
     },
     profileImage : {

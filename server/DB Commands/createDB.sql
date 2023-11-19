@@ -16,7 +16,7 @@ CREATE TABLE AccountInfo(
     friends VARCHAR[]
 );
 
-CREATE TABLE Posts(
+CREATE TABLE owlPosts(
     postID VARCHAR(255),
     userID VARCHAR(255),
     firstName VARCHAR(255),
@@ -26,9 +26,7 @@ CREATE TABLE Posts(
     profileImage VARCHAR(255),
     postImage VARCHAR(255),
     likes VARCHAR[],
-    comments VARCHAR[],
-    likes
-    comments
+    commenters VARCHAR[]
 );
 
 CREATE TABLE Images(

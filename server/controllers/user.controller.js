@@ -76,6 +76,24 @@ export const getUserProfileImage = async(req, res) =>{
     }
 }
 
+export const verifynReturnFriend = async(req, res) =>{
+    try {
+        
+        const {userid} = req.params;
+        const {secondID} = req.body;
+        const verifyFriendQuery = `SELECT * FROM accountinfo
+                                   WHERE '${userid}' = ANY(friends)
+                                   AND userid = '${secondID}'`;
+        const verifyFriendQueryResult = await pool.query(verifyFriendQuery);
+
+        delete verifyFriendQueryResult.rows[0].password;
+        res.status(201).json(verifyFriendQueryResult.rows[0]);
+
+    } catch (err) {
+        res.status(404).json({ msg: err.message });
+    }
+}
+
 
 export const addNewFriend = async(req, res) =>{
     try {
@@ -83,12 +101,18 @@ export const addNewFriend = async(req, res) =>{
         const {userid} = req.params;
         const {newFriendsID} = req.body;
 
-        const addNewFriendQuery = `UPDATE accountInfo
-                                   SET friends = ARRAY_APPEND(friends, '${newFriendsID}')
-                                   WHERE userid = '${userid}'`;
-        const addNewFriendQueryResult = await pool.query(addNewFriendQuery);
+        //Enlisting friendID as user's friend
+        const addNewFriendQuery1 = `UPDATE accountInfo
+                                    SET friends = ARRAY_APPEND(friends, '${newFriendsID}')
+                                    WHERE userid = '${userid}'`;
+        const addNewFriendQueryResult1 = await pool.query(addNewFriendQuery);
 
-        
+        //Enlisting userID as friendID's friend
+        const addNewFriendQuery2 = `UPDATE accountInfo
+                                    SET friends = ARRAY_APPEND(friends, '${userid}')
+                                    WHERE userid = '${newFriendsID}'`;
+        const addNewFriendQueryResult2 = await pool.query(addNewFriendQuery2);
+      
         res.status(201).json({userid, newFriendsID});
 
     } catch (err) {
@@ -102,10 +126,17 @@ export const deleteFriend = async(req, res) =>{
         const {userid} = req.params;
         const {deletedFriendID} = req.body;
         
-        const deleteFriendByIDQuery = `UPDATE accountInfo
+        //Deleting friendID from user's friendList
+        const deleteFriendByIDQuery1 = `UPDATE accountInfo
                                        SET friends = ARRAY_REMOVE(friends, '${deletedFriendID}')
                                        WHERE userid = '${userid}'`;
-        const deleteFriendByIDQueryResult = await pool.query(deleteFriendByIDQuery);
+        const deleteFriendByIDQueryResult1 = await pool.query(deleteFriendByIDQuery1);
+
+        //Deleting userID from friend's friendList
+        const deleteFriendByIDQuery2 = `UPDATE accountInfo
+                                        SET friends = ARRAY_REMOVE(friends, '${userid}')
+                                        WHERE userid = '${deletedFriendID}'`;
+        const deleteFriendByIDQueryResult2 = await pool.query(deleteFriendByIDQuery2);
         
         res.status(201).json({userid, deletedFriendID});
 
