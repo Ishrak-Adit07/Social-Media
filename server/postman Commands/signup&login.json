@@ -1,0 +1,13 @@
+{
+    "userid": "Neville Longbottom",
+     "firstName" : "Neville", 
+     "lastName" : "Longbottom", 
+     "email" : "nl@raven.com", 
+     "password" : "nlgrf", 
+    "profileImage": "C:\\Users\\ELITE X2\\Desktop\\JS Projects\\Social-Media\\server\\public\\images\\neville.png", 
+    "location" : "london",
+    "occupation" : "student", 
+    "friends" : [
+        "Luna Lovegood", "Ron Weasley", "Harry Potter"
+    ]
+}
