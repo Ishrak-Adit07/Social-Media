@@ -1,4 +1,13 @@
 export const user = {
+    userID : {
+        type : String,
+        require : true
+    },
+    userName : {
+        type : String,
+        require : true,
+        max : 50
+    },
     firstName : {
         type : String,
         require : true,

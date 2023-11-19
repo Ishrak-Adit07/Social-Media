@@ -1,8 +1,9 @@
 CREATE DATABASE owltweet;
 
 CREATE TABLE AccountInfo(
-    userNo SERIAL PRIMARY KEY,
-    userID VARCHAR(255),
+    userNo SERIAL,
+    userID VARCHAR(255) PRIMARY KEY,
+    userName VARCHAR(255),
     firstName VARCHAR(255),
     lastName VARCHAR(255),
     email VARCHAR(255),

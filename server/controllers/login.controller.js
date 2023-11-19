@@ -20,7 +20,8 @@ export const login = async(req, res) =>{
         if(!isMatch) res.status(500).json({  msg: "Invalid Credentials" });
         else{
             //Creating user profile for backend
-            user.userid = findUserQueryResult.rows[0].userid;
+            user.userID = findUserQueryResult.rows[0].userID;
+            user.userName = findUserQueryResult.rows[0].userName;
             user.firstName = findUserQueryResult.rows[0].firstname;
             user.lastName = findUserQueryResult.rows[0].lastname;
             user.email = findUserQueryResult.rows[0].email;

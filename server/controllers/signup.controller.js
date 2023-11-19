@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { user } from '../models/user.model';
 import { pool } from '../DB Executions/dbConnection';
-import { runQuery } from '../DB Executions/runQuery';
+import { v4 as uuidv4 } from 'uuid';
 
 export const signUp = async(req, res) =>{
     try {
@@ -21,7 +21,8 @@ export const signUp = async(req, res) =>{
         const passwordHash = await bcrypt.hash(password, salt);
 
         //Accessing rest of information from signup request body
-        user.userid = req.body.userid;
+        user.userID = uuidv4();
+        user.userName = req.body.userName;
         user.firstName = req.body.firstName;
         user.lastName = req.body.lastName;
         user.email = req.body.email;
@@ -44,11 +45,10 @@ export const signUp = async(req, res) =>{
 
 
         //Insert new user Query
-        const insertNewUserQuery = `INSERT INTO accountinfo(userid, firstname, lastname, email, "password", profileimage, "location", occupation, viewedprofile, impressions, friends)
-                                    VALUES ('${user.userid}', '${user.firstName}', '${user.lastName}', '${user.email}', '${user.password}', '${user.profileImage}', '${user.location}', '${user.occupation}', ${user.viewedProfile}, ${user.impressions}, '${jsonFriendList}')
+        const insertNewUserQuery = `INSERT INTO accountinfo(userid, username, firstname, lastname, email, "password", profileimage, "location", occupation, viewedprofile, impressions, friends)
+                                    VALUES ('${user.userID}', '${user.userName}', '${user.firstName}', '${user.lastName}', '${user.email}', '${user.password}', '${user.profileImage}', '${user.location}', '${user.occupation}', ${user.viewedProfile}, ${user.impressions}, '${jsonFriendList}')
                                     RETURNING *`;
         const insertNewUserQueryResult = await pool.query(insertNewUserQuery);
-        console.log(insertNewUserQueryResult.rows);
         
         //Response with user information
         res.status(201).json(user);

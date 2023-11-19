@@ -58,6 +58,8 @@ app.use("/login", loginRouter);
 import signUpRouter from './routes/signup.route';
 app.use("/signup", signUpRouter);
 
+import userRouter from './routes/user.route';
+app.use("/user", userRouter);
 
 
 //Default URL
