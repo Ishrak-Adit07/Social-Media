@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Navigate, Routes, Route, Link } from 'react-router-dom';
 
 //Importing Scenes
 import HomePage from './scenes/HomePage';
