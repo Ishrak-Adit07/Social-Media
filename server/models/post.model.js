@@ -38,6 +38,12 @@ export const post = {
         type : Date,
         required : true
     },
-    location : String, 
-    caption : String
+    location : {
+        type : String,
+        default : ""
+    }, 
+    caption : {
+        type : String,
+        default : ""
+    }
 }

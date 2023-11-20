@@ -2,7 +2,7 @@ import { pool } from "../DB Executions/dbConnection";
 import { runQuery } from "../DB Executions/runQuery";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { user } from "../models/user.model";
+import {user} from '../models/user.model';
 
 export const login = async(req, res) =>{
     try {
