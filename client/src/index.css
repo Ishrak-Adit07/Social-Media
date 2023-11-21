@@ -9,3 +9,16 @@ body,
   font-family: "Rubik", sans-serif;
 }
 
+.bigHallBG{
+  background-image: url('../public/images/GreatHall.png');
+  opacity: .9;
+  padding: 20px;
+}
+
+.centerAlign{
+  text-align: center;
+}
+
+.rightAlign{
+  text-align: right;
+}
