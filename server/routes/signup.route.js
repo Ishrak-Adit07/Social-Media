@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-router.get("/verifyEmail", uniqueEmailVerify);
+router.post("/verifyEmail", uniqueEmailVerify);
 router.post("/", upload.single("picture"), signUp);
 
 export default router;

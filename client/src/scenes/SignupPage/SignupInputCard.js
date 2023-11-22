@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 import '../LoginPage/Login.css';
 
 import { GiOwl } from "react-icons/gi";
@@ -22,14 +22,17 @@ const SignupInputCard = (props) =>{
 
         const body = { 
             email,
-            username
+            userName : username
          };
-        const response = await fetch("http://localhost:4000/login", {
+        const response = await fetch("http://localhost:4000/signup/verifyEmail", {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(body),
         });
         const responseData = await response.json();
+        console.log(responseData);
+
+        props.handleFirstSignupNext();
 
     }catch(err){
         console.error(err.message);

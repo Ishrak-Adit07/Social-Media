@@ -43,8 +43,9 @@ export const signUp = async(req, res) =>{
         user.location = req.body.location;
         user.occupation = req.body.occupation;
         user.friends = req.body.friends;
-        user.viewedProfile = Math.floor(Math.random()*1000);
-        user.impressions = Math.floor(Math.random()*1000);
+        user.viewedProfile = 0;
+        user.impressions = 0; 
+        //Math.floor(Math.random()*1000)
 
         //Modifying friendList to json format for inserting into database
         let jsonFriendList = "{";

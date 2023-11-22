@@ -7,11 +7,13 @@ import LoginInputCard from './LoginInputCard';
 import LoginCardFooter from './LoginCardFooter';
 
 import SignupInputCard from 'scenes/SignupPage/SignupInputCard';
+import SignupInputSecondCard from 'scenes/SignupPage/SignupInputSecondCard';
 
 export default function LoginCard() {
 
   const [loginInputDisplay, setLoginInputDisplay] = useState(true);
   const [signupInputFirstDisplay, setSignupInputFirstDisplay] = useState(false);
+  const [signupInputSecondtDisplay, setSignupInputSecondDisplay] = useState(false);
 
   const handleSignUp = () =>{
     setLoginInputDisplay(false);
@@ -23,6 +25,16 @@ export default function LoginCard() {
     setSignupInputFirstDisplay(false);
   }
 
+  const backFromSecondSignupDisplay = () =>{
+    setSignupInputFirstDisplay(true);
+    setSignupInputSecondDisplay(false);
+  }
+
+  const handleFirstSignupNext = () =>{
+    setSignupInputFirstDisplay(false);
+    setSignupInputSecondDisplay(true);
+  }
+
   return (
     <div>
         <Fragment>
@@ -32,7 +44,11 @@ export default function LoginCard() {
             <div class="container rightAlign cardDesign bigMargin">  
 
                 {loginInputDisplay && <LoginInputCard handleSignUp={handleSignUp}/>}
-                {signupInputFirstDisplay && <SignupInputCard backFromFirstSignupDisplay={backFromFirstSignupDisplay}/>}
+                {signupInputFirstDisplay && <SignupInputCard 
+                                             backFromFirstSignupDisplay = {backFromFirstSignupDisplay} 
+                                             handleFirstSignupNext = {handleFirstSignupNext}/>}
+                {signupInputSecondtDisplay && <SignupInputSecondCard 
+                                               backFromSecondSignupDisplay={backFromSecondSignupDisplay} />}
                     
             </div>
 
