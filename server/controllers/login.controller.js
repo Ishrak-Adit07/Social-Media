@@ -9,6 +9,7 @@ export const login = async(req, res) =>{
         
         //Verifying email ID
         const {email, password} = req.body;
+        console.log(email, password);
         const findUserQuery = `SELECT * FROM accountinfo 
                                WHERE email = '${email}'`;
         const findUserQueryResult = await pool.query(findUserQuery);
