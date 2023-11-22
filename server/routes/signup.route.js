@@ -2,7 +2,7 @@ import express from 'express'
 const router = express.Router();
 import multer from 'multer';
 
-import { signUp } from '../controllers/signup.controller';
+import { signUp, uniqueEmailVerify } from '../controllers/signup.controller';
 
 /* FILE STORAGE MIDDLEWARE*/
 const storage = multer.diskStorage({
@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+router.get("/verifyEmail", uniqueEmailVerify);
 router.post("/", upload.single("picture"), signUp);
 
 export default router;

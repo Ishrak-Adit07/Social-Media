@@ -4,9 +4,8 @@ import { user } from '../models/user.model';
 import { pool } from '../DB Executions/dbConnection';
 import { v4 as uuidv4 } from 'uuid';
 
-export const signUp = async(req, res) =>{
+export const uniqueEmailVerify = async(req, res) =>{
     try {
-
         
         //New Mail Validity Inspection
         user.email = req.body.email;
@@ -14,7 +13,20 @@ export const signUp = async(req, res) =>{
                                       WHERE email = '${user.email}'`;
         const newMailValidityQueryResult = await pool.query(newMailValidityQuery);
         if(newMailValidityQueryResult.rows.length != 0) res.status(500).json({  msg: "Mail is already in use" });
+        else res.status(200).json({  msg: "Mail is Valid" });
+
+    } catch (err) {
+        res.status(500).json({  error: err.message });
+    }
+}
+
+export const signUp = async(req, res) =>{
+    try {
+
         
+        //New Mail
+        user.email = req.body.email;  
+
         //Encrypting password for storing in database
         const password = req.body.password;
         const salt = await bcrypt.genSalt();
@@ -43,14 +55,16 @@ export const signUp = async(req, res) =>{
 
         }jsonFriendList += "}";
 
-
+        /*
         //Insert new user Query
         const insertNewUserQuery = `INSERT INTO accountinfo(userid, username, firstname, lastname, email, "password", profileimage, "location", occupation, viewedprofile, impressions, friends)
                                     VALUES ('${user.userID}', '${user.userName}', '${user.firstName}', '${user.lastName}', '${user.email}', '${user.password}', '${user.profileImage}', '${user.location}', '${user.occupation}', ${user.viewedProfile}, ${user.impressions}, '${jsonFriendList}')
                                     RETURNING *`;
         const insertNewUserQueryResult = await pool.query(insertNewUserQuery);
+        */
         
-        //Response with user information
+        //Response with user information w/o password
+        delete user.password;
         res.status(201).json(user);
 
     } catch (err) {
