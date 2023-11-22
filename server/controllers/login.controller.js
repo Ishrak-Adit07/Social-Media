@@ -35,7 +35,7 @@ export const login = async(req, res) =>{
             user.impressions = findUserQueryResult.rows[0].impressions;
 
             //Granting web token for new logged in user
-            const token = jwt.sign({ id: user.userid }, process.env.JWT_SECRET_KEY);
+            const token = jwt.sign({ id: user.userID }, process.env.JWT_SECRET_KEY);
             delete user.password;
 
             //Response with user information

@@ -29,10 +29,21 @@ const SignupInputCard = (props) =>{
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(body),
         });
-        const responseData = await response.json();
-        console.log(responseData);
+        let responseData;
+        if(response.status === 200){
+          responseData = await response.json();
+          console.log(responseData);
 
-        props.handleFirstSignupNext();
+          props.newUser.email = email;
+          props.newUser.userName = username;
+
+          props.handleFirstSignupNext();
+        }
+
+        else{
+          alert("Mail is already in use");
+        }
+
 
     }catch(err){
         console.error(err.message);

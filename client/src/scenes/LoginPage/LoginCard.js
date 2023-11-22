@@ -8,12 +8,16 @@ import LoginCardFooter from './LoginCardFooter';
 
 import SignupInputCard from 'scenes/SignupPage/SignupInputCard';
 import SignupInputSecondCard from 'scenes/SignupPage/SignupInputSecondCard';
+import SignupInputThirdCard from 'scenes/SignupPage/SignupInputThirdCard';
+
+import { user } from './user.model';
 
 export default function LoginCard() {
 
   const [loginInputDisplay, setLoginInputDisplay] = useState(true);
   const [signupInputFirstDisplay, setSignupInputFirstDisplay] = useState(false);
-  const [signupInputSecondtDisplay, setSignupInputSecondDisplay] = useState(false);
+  const [signupInputSecondDisplay, setSignupInputSecondDisplay] = useState(false);
+  const [signupInputThirdDisplay, setSignupInputThirdDisplay] = useState(false);
 
   const handleSignUp = () =>{
     setLoginInputDisplay(false);
@@ -25,15 +29,27 @@ export default function LoginCard() {
     setSignupInputFirstDisplay(false);
   }
 
+  const handleFirstSignupNext = () =>{
+    setSignupInputFirstDisplay(false);
+    setSignupInputSecondDisplay(true);
+  }
+
   const backFromSecondSignupDisplay = () =>{
     setSignupInputFirstDisplay(true);
     setSignupInputSecondDisplay(false);
   }
 
-  const handleFirstSignupNext = () =>{
-    setSignupInputFirstDisplay(false);
-    setSignupInputSecondDisplay(true);
+  const handleSecondSignupNext = () =>{
+    setSignupInputSecondDisplay(false);
+    setSignupInputThirdDisplay(true);
   }
+
+  const backFromThirdSignupDisplay = () =>{
+    setSignupInputSecondDisplay(true);
+    setSignupInputThirdDisplay(false);
+  }
+
+  const newUser = user;
 
   return (
     <div>
@@ -46,9 +62,16 @@ export default function LoginCard() {
                 {loginInputDisplay && <LoginInputCard handleSignUp={handleSignUp}/>}
                 {signupInputFirstDisplay && <SignupInputCard 
                                              backFromFirstSignupDisplay = {backFromFirstSignupDisplay} 
-                                             handleFirstSignupNext = {handleFirstSignupNext}/>}
-                {signupInputSecondtDisplay && <SignupInputSecondCard 
-                                               backFromSecondSignupDisplay={backFromSecondSignupDisplay} />}
+                                             handleFirstSignupNext = {handleFirstSignupNext}
+                                             newUser = {newUser}/>}
+                {signupInputSecondDisplay && <SignupInputSecondCard 
+                                               backFromSecondSignupDisplay={backFromSecondSignupDisplay} 
+                                               handleSecondSignupNext={handleSecondSignupNext}
+                                               newUser = {newUser}/>}
+                {signupInputThirdDisplay && <SignupInputThirdCard 
+                                               backFromThirdSignupDisplay={backFromThirdSignupDisplay} 
+                                               handleSecondSignupNext={handleSecondSignupNext}
+                                               newUser = {newUser}/>}
                     
             </div>
 
