@@ -13,6 +13,7 @@ body,
   background-image: url('../public/images/CastleWObg.png');
   opacity: .9;
   padding: 20px;
+  width: 100%;
 }
 
 .centerAlign{
