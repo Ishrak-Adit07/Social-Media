@@ -39,15 +39,15 @@ export default function Navbar() {
             <div className="navbarIcons">
                     <div className="navbarIcon">
                         <PersonIcon />
-                        <span className="navbarIconBadge">1</span>
+                        <span className="navbarIconBadge">2</span>
                     </div>
                     <div className="navbarIcon">
                         <TextsmsIcon />
-                        <span className="navbarIconBadge">1</span>
+                        <span className="navbarIconBadge">4</span>
                     </div>
                     <div className="navbarIcon">
                         <NotificationsIcon />
-                        <span className="navbarIconBadge">1</span>
+                        <span className="navbarIconBadge">7</span>
                     </div>
 
                     <img src="assets/hermione.png" alt="profileImage" className="navbarProfileImage" />
