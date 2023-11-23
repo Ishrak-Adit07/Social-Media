@@ -18,12 +18,6 @@ export default function Feed() {
       </div>
       <div className="FeedcardWrapper">
         <Feedcard />
-        <Feedcard />
-        <Feedcard />
-        <Feedcard />
-        <Feedcard />
-        <Feedcard />
-        <Feedcard />
       </div>
 
 

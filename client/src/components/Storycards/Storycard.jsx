@@ -60,10 +60,6 @@ export default function Storycard() {
       <div className='myStoryCard'>
         <img src="images/GreatHall.png" alt="story" className="storyImage" />
       </div>
-      
-      <div className='storyCard'>
-        <img src="images/GreatHall.png" alt="story" className="storyImage" />
-      </div>
 
       {stories.map((story)=>{
         return (

@@ -1,10 +1,13 @@
 import React from 'react'
 
-export default function FeedcardBody() {
+export default function FeedcardBody(props) {
+
+  const postImage = props.postImage;
+
   return (
     <div className='feedcardBody'>
       
-      <img src="images/snowyOwl.png" alt="profileImage" className="feedcardBodyImage" />
+      <img src={postImage} alt="profileImage" className="feedcardBodyImage" />
 
     </div>
   )

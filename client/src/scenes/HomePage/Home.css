@@ -15,7 +15,7 @@
     border-radius: 20px;
     margin-top: .5%;
     width: 20%;
-    min-height: calc( 200vh - 55px );
+    height: calc( 98vh - 55px );
   }
 
   .feedContainer{
@@ -25,13 +25,23 @@
     margin-right: .5%;
     margin-top: .5%;
     width: 60%;
-    min-height: calc( 100vh - 55px );
+    height: calc( 98vh - 55px );
+    overflow-y: auto;
   }
+
+  .feedContainer::-webkit-scrollbar {
+    width: 0.5em; /* For Chrome, Safari, and Opera */
+}
+
+.feedContainer::-webkit-scrollbar-thumb {
+    background-color: transparent; /* For Chrome, Safari, and Opera */
+}
 
   .rightbarContainer{
     background: linear-gradient(to right, #db6c6c, #9198e5);
     border-radius: 20px;
     margin-top: .5%;
     width: 20%;
-    min-height: calc( 100vh - 55px );
+    height: calc( 98vh - 55px );
+    overflow-y: auto;
   }

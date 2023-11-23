@@ -1,14 +1,15 @@
 import React from 'react';
 
-export default function FeedcardFooter() {
+export default function FeedcardFooter(props) {
 
-  const userName = "Ginny Weasley";
-  const userHouse = "Gryffindor";
+  const userName = props.userName;
+  const userHouse = props.userHouse;
+  const feedcardProfileImage = props.feedcardProfileImage;
   
   return (
     <div className='feedcardFooter'>
 
-      <img src="assets/ginny.png" alt="profileImage" className="feedcardHeaderImage" />
+      <img src={feedcardProfileImage} alt="profileImage" className="feedcardHeaderImage" />
 
       <div className="feedcardHeaderInfo">
         <div className="feedcaredHeaderName">
