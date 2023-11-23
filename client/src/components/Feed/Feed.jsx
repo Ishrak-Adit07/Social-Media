@@ -1,78 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './Feed.css';
+import Storycard from 'components/Storycards/Storycard';
+import Postcard from 'components/Postcard/Postcard';
+import { postModalFragment, postModalID } from 'components/postModalFragment';
 
 export default function Feed() {
-
-  const stories = [
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-    {
-      username : "Harry Potter",
-      storyImage : "images/GreatHall.png",
-    },
-  ];
 
   return (
     <div>
 
-    <div className='storyBar'>
-
-      <div className='myStoryCard'>
-        <img src="images/GreatHall.png" alt="story" className="storyImage" />
+      <div>
+        <Storycard />
       </div>
-      
-      <div className='storyCard'>
-        <img src="images/GreatHall.png" alt="story" className="storyImage" />
+      <div className='PostcardWrapper'>
+        <Postcard postModalID={postModalID}/>
       </div>
 
-      {stories.map((story)=>{
-        return (
-          <div className='storyCard'>
-            <img src={story.storyImage} alt="story" className="storyImage" />
-          </div>
-        );
-      })}
-
-    </div>
+      {postModalFragment};
 
     </div>
   );
+  
 }

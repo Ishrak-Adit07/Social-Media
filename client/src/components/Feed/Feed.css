@@ -1,65 +1,24 @@
-.storyBar{
-    display: flex;
+.PostcardWrapper{
     align-items: center;
-    flex-direction: row;
-    overflow-x: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    transform: translate(2%, 0%);
 }
 
-.storyBar::-webkit-scrollbar {
-    width: 0.5em; /* For Chrome, Safari, and Opera */
-}
-
-.storyBar::-webkit-scrollbar-thumb {
-    background-color: transparent; /* For Chrome, Safari, and Opera */
-}
-
-.myStoryCard{
-    min-width: 18%;
-    aspect-ratio: 1/1.4;
-    background-color: rgba(255, 2555, 255,.5);
-    color: black;
-    margin: 2.5%;
-    margin-right: 1%;
-    border-radius: 20px;
-}
-
-.storyCard{
-    min-width: 18%;
-    aspect-ratio: 1/1.4;
-    background-color: rgba(255, 2555, 255,.5);
-    color: black;
-    margin: 2.5%;
-    margin-left: 0;
-    margin-right: 1%;
-    border-radius: 20px;
-}
-
-.storyImage{
-    position: relative;
-    height: 100%;
+.postBar{
+    background-color: white;
+    height: 90%;
     width: 100%;
-    border: 2px solid black;
-    cursor: pointer;
-    object-fit: cover;
-    border-radius: 20px;
-    opacity: .8;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
 }
 
-.storyImage:hover{
-    position: relative;
-    height: 100%;
+
+.postBarInput{
     width: 100%;
-    border: 2px solid black;
-    cursor: pointer;
-    object-fit: cover;
-    border-radius: 20px;
-    opacity: 1;
-}
-
-.storyUsername{
-    position: relative;
-    transform: translate(10%, -180%);
-    color: white; /* Set the text color */
-    text-align: center;
-    background-color: transparent;
+    font-size: 85%;
+    border: none;
+    outline: none;
+    margin-left: 1%;
 }

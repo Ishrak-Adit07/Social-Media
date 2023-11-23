@@ -1,10 +1,30 @@
 .storyBar{
     display: flex;
     align-items: center;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.storyBar::-webkit-scrollbar {
+    width: 0.5em; /* For Chrome, Safari, and Opera */
+}
+
+.storyBar::-webkit-scrollbar-thumb {
+    background-color: transparent; /* For Chrome, Safari, and Opera */
+}
+
+.myStoryCard{
+    min-width: 18%;
+    aspect-ratio: 1/1.4;
+    background-color: rgba(255, 2555, 255,.5);
+    color: black;
+    margin: 2.5%;
+    margin-right: 1%;
+    border-radius: 20px;
 }
 
 .storyCard{
-    width: 18%;
+    min-width: 18%;
     aspect-ratio: 1/1.4;
     background-color: rgba(255, 2555, 255,.5);
     color: black;
@@ -14,16 +34,8 @@
     border-radius: 20px;
 }
 
-.myStoryCard{
-    width: 18%;
-    aspect-ratio: 1/1.4;
-    background-color: rgba(255, 2555, 255,.5);
-    color: black;
-    margin: 2.5%;
-    border-radius: 20px;
-}
-
 .storyImage{
+    position: relative;
     height: 100%;
     width: 100%;
     border: 2px solid black;
@@ -34,6 +46,7 @@
 }
 
 .storyImage:hover{
+    position: relative;
     height: 100%;
     width: 100%;
     border: 2px solid black;
@@ -41,4 +54,12 @@
     object-fit: cover;
     border-radius: 20px;
     opacity: 1;
+}
+
+.storyUsername{
+    position: relative;
+    transform: translate(10%, -180%);
+    color: white; /* Set the text color */
+    text-align: center;
+    background-color: transparent;
 }
