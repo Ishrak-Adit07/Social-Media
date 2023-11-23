@@ -11,27 +11,27 @@
   }
 
   .sidebarContainer{
-    background: linear-gradient(#db6c6c, #9198e5);
+    background: linear-gradient(to right, #db6c6c, #9198e5);
     border-radius: 20px;
     margin-top: .5%;
     width: 20%;
-    height: calc( 200vh - 55px );
+    min-height: calc( 200vh - 55px );
   }
 
   .feedContainer{
-    background: linear-gradient(#db6c6c, #9198e5);
+    background: linear-gradient(to right, #db6c6c, #9198e5);
     border-radius: 20px;
     margin-left: .5%;
     margin-right: .5%;
     margin-top: .5%;
     width: 60%;
-    height: calc( 100vh - 55px );
+    min-height: calc( 100vh - 55px );
   }
 
   .rightbarContainer{
-    background: linear-gradient(#db6c6c, #9198e5);
+    background: linear-gradient(to right, #db6c6c, #9198e5);
     border-radius: 20px;
     margin-top: .5%;
     width: 20%;
-    height: calc( 100vh - 55px );
+    min-height: calc( 100vh - 55px );
   }
