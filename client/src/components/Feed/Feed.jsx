@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import './Feed.css';
 import Storycard from 'components/Storycards/Storycard';
 import Postcard from 'components/Postcard/Postcard';
-import { postModalFragment, postModalID } from 'components/postModalFragment';
+import { postModalFragment, postModalID } from './postModalFragment';
 import Feedcard from 'components/Feedcards/Feedcard';
 
 export default function Feed() {
