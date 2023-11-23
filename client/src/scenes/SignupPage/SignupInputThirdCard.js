@@ -39,8 +39,8 @@ const SignupInputThirdCard = (props) =>{
           body: JSON.stringify(body),
         });
         let responseData;
-        if(response.status === 200){
-          responseData = response.json();
+        if(response.status === 201){
+          responseData = await response.json();
           console.log(responseData);
         }
 

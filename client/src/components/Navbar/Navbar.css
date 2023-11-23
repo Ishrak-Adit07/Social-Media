@@ -1,0 +1,97 @@
+.navbarContainer{
+    margin-bottom: 100px;
+    height : 50px;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.navbarLeft{
+    width: 5%;
+    right: 0; left: 0;
+}
+
+.homeLogo{
+    color: white;
+}
+
+.navSearchInput{
+    width: 80%;
+    font-size: 85%;
+    border: none;
+    outline: none;
+    margin-left: 1%;
+}
+
+
+.navbarCenter{
+    display: flex;
+    width: 25%;
+    align-items: center;
+    text-align: center;
+}
+
+.navbarFeedCenter{
+    width: 50%;
+    align-items: center;
+    transform : translate(-12%, 0%);
+}
+
+.navbarFeedButton{
+    width: 20%;
+    padding: .5%;
+    border-radius: 20px;
+}
+
+.navSearchBar{
+    background-color: white;
+    height: 70%;
+    width: 70%;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+}
+
+.navSearchIcon{
+    margin-left: 2%;
+}
+
+.navSearchInput{
+    border: none;
+    margin-left: 1%;
+}
+
+.navbarProfileImage{
+    width: 15%;
+    aspect-ratio: 2 / 2;
+    border-radius: 20px;
+    margin-right: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.navbarRight{
+    height: 100%;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.navbarIcons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbarIcon{
+    font-size: 90%;
+    margin-right: 5%;
+}
+
+

@@ -1,0 +1,33 @@
+.flexDisplay{
+    display: flex;
+    min-width: 100%;
+    margin: 400px;
+}
+
+.leftHomePart{
+    width: 20%;
+    min-height: 800px;
+    background-color: aqua;
+}
+&&:hover{
+    overflow-y: auto;
+}
+
+.middleHomePart{
+    width: 20%;
+    min-height: 800px;
+    background-color: red;
+    transform: -40%, 0%;
+}
+&&:hover{
+    overflow-y: auto;
+}
+
+.rightHomePart{
+    width: 20%;
+    min-height: 800px;
+    background-color: green;
+}
+&&:hover{
+    overflow-y: auto;
+}

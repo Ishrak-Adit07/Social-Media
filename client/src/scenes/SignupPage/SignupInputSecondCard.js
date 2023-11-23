@@ -56,7 +56,7 @@ const SignupInputSecondCard = (props) =>{
 
                 <div>
                     <label className='registerLabel'>Password: </label>
-                    <input type='text' name='password' placeholder='Enter password' className='registerInput' onChange={onPasswordChange}/>
+                    <input type='password' name='password' placeholder='Enter password' className='registerInput' onChange={onPasswordChange}/>
                 </div>
 
             </div>
