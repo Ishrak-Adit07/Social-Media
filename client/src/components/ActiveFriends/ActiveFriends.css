@@ -1,24 +1,29 @@
-.sidebarWrapper{
-    align-items: left;
+.activeFriendsWrapper{
     text-align: left;
-    padding-left: 0;
+    margin-top: 10%;
 }
 
-.sidebarList{
+.activeFriendsHeader{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.activeFriendsList{
     width: 80%;
     list-style-type: none;
     align-items: left;
     transform: translate(-10%, 0%);
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 20%;
+    text-align: left;
 }
 
-.sidebarListItem{
+.activeFriendsListItem{
     width: 100%;
-    margin: 10%;
+    text-align: left;
 }
 
-.sidebarListItemButton{
+.activeFriendsListItemButton{
     width: 100%;
     display: flex;
     background-color: transparent;
@@ -27,30 +32,10 @@
     text-align: left;
     align-items: center;
     font-size: 100%;
+    margin-bottom: 10%;
 }
 
-.sidebarListItemNameButton{
-    width: 100%;
-    display: flex;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    text-align: left;
-    align-items: center;
-    font-size: 100%;
-}
-
-.sidebarListItemNameButton:hover{
-    width: 100%;
-    display: flex;
-    border: none;
-    outline: none;
-    text-align: left;
-    align-items: center;
-    background-color: rgba(255, 0, 0, .4);
-}
-
-.sidebarListItemButton:hover{
+.activeFriendsListItemButton:hover{
     width: 100%;
     display: flex;
     background-color: transparent;
@@ -63,7 +48,7 @@
 
 }
 
-.sidebarProfileImage{
+.activeFriendsListItemImage{
     width: 18%;
     aspect-ratio: 2 / 2;
     border-radius: 20px;
@@ -75,6 +60,8 @@
     object-fit: cover;
 }
 
-.sidebarListItemIcon{
-    margin: 5%;
+.activeFriendsListItemIcon{
+    font-size: 90%;
+    transform: translate(-950%, 50%);
+    color: lightgreen;
 }

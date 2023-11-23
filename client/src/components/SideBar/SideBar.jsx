@@ -13,7 +13,7 @@ export default function SideBar() {
       <div className="sidebarWrapper">
 
         <ul className="sidebarList">
-          <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><img src="assets/hermione.png" alt="profileImage" className="sidebarProfileImage" />{username}</button></li>
+          <li className="sidebarListItem"><button type="button" class="btn sidebarListItemNameButton"><img src="assets/hermione.png" alt="profileImage" className="sidebarProfileImage" />{username}</button></li>
           <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><FaUserGroup className='sidebarListItemIcon'/>Friends</button></li>
           <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><FaUserGroup className='sidebarListItemIcon'/>Orders</button></li>
           <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><FaUserGroup className='sidebarListItemIcon'/>Diagon Alley</button></li>

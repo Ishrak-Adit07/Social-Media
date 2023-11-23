@@ -70,3 +70,11 @@
     display: flex;
     align-items: center;
 }
+
+.feedcardHeaderInfo{
+    align-items: center;
+}
+
+h6{
+    margin: 0;
+}

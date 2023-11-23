@@ -4,9 +4,6 @@
 //Importing css files
 import './App.css';
 
-//Importing components
-import Header from './components/Header';
-
 //Importing Scenes 
 import ProfilePage from 'scenes/ProfilePage/ProfilePage';
 import LoginCard from 'scenes/LoginPage/LoginCard';
