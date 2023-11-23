@@ -2,11 +2,12 @@
     margin-bottom: 100px;
     height : 50px;
     width: 100%;
-    background-color: aqua;
+    background: linear-gradient(#db6c6c, #9198e5);
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
+    position: fixed;
 }
 
 .navbarLeft{
@@ -47,11 +48,19 @@
     background-color: transparent;
     border: none;
     outline: none;
+    color: white;
 }
 
 .navbarFeedButton:hover{
     background-color: red;
     outline: none;
+    cursor: pointer;
+}
+
+.navbarFeedButton:after{
+    background-color: red;
+    outline: none;
+    cursor: pointer;
 }
 
 .navSearchBar{
@@ -73,12 +82,15 @@
 }
 
 .navbarProfileImage{
-    width: 15%;
+    width: 18%;
     aspect-ratio: 2 / 2;
     border-radius: 20px;
     margin-right: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
+    border: 2px solid black;
+    cursor: pointer;
+    object-fit: cover;
 }
 
 .navbarRight{
@@ -96,11 +108,26 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    cursor: pointer;
 }
 
 .navbarIcon{
     font-size: 90%;
     margin-right: 2%;
+    color: white
+}
+
+.navbarIconBadge{
+    width: 8%;
+    height: 35%;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 80%;
+    justify-content: space-around;
+    transform: translate(-50%, 0%);
 }
 
 
