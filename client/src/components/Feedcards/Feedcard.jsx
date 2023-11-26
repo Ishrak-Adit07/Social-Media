@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, { useEffect } from 'react';
 import './Feedcard.css';
 import FeedcardHeader from './FeedcardHeader';
 import FeedcardBody from './FeedcardBody';
@@ -50,6 +50,26 @@ const FeedCardsInfo = [
 ];
 
 export default function Feedcard() {
+
+  const getFeedPosts = async() =>{
+    try {
+      
+      const response = await fetch("http://localhost:4000/posts/feedPosts");
+      const responseData = await response.json();
+  
+      if(response.status === 200){
+        console.log(responseData);
+      }
+  
+    } catch (err) {
+      console.error(err.meassage);
+    }
+  }
+
+  useEffect(()=>{
+    getFeedPosts();
+  }, []);
+
   return (
     <div>
         

@@ -17,8 +17,8 @@ router.get("/:userid", getUserPosts);
 
 //Reminder to add verifyToken
 //Liking or Unliking posts
-router.put("/:userid/like", likePost);
-router.put("/:userid/unlike", unlikePost)
+router.put("/like/:userid", likePost);
+router.put("/unlike/:userid", unlikePost)
 
 
 export default router;

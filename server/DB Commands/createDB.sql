@@ -19,14 +19,15 @@ CREATE TABLE AccountInfo(
 CREATE TABLE owlPosts(
     postID VARCHAR(255),
     userID VARCHAR(255),
-    firstName VARCHAR(255),
-    lastName VARCHAR(255),
-    location VARCHAR(255),
-    caption VARCHAR(255),
+    userName VARCHAR(255),
+    house VARCHAR(255),
     profileImage VARCHAR(255),
     postImage VARCHAR(255),
-    likes VARCHAR[],
-    commenters VARCHAR[]
+    caption VARCHAR(255),
+    location VARCHAR(255),
+    likers VARCHAR[],
+    commenters VARCHAR[],
+    createdon DATE
 );
 
 CREATE TABLE Images(

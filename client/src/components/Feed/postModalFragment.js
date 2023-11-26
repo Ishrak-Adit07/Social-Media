@@ -17,6 +17,10 @@ export const postModalFragment = (
                     <input type="text" className="postBarInput" placeholder='Write Post'/>
                 </div>
 
+                <div className="postImageBar">
+                    <input type="file" className="postImageBarInput" placeholder='Write Post'/>
+                </div>
+
           </div>
 
           <div class="modal-footer">

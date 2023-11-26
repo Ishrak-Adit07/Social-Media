@@ -78,3 +78,28 @@
 h6{
     margin: 0;
 }
+
+.feedCardLikeButton{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.feedCardLikeButton:hover,
+.feedCardLikeButton:focus,
+.feedCardLikeButton:active:focus,
+.feedCardLikeButton.active:focus,
+.feedCardLikeButton.focus,
+.feedCardLikeButton:active.focus,
+.feedCardLikeButton.active.focus,
+.feedCardLikeButton:active{
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
+}
+
+.likedIcon{
+    color: red;
+}
