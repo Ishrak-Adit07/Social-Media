@@ -1,0 +1,32 @@
+.profilePageContainer{
+    display: flex;
+    margin-top: 55px;
+}
+
+.sidebarContainer{
+    background: linear-gradient(to right, #c8d7f2, #db6c6c);
+    border-radius: 20px;
+    margin-top: .5%;
+    width: 22%;
+    height: calc( 98vh - 55px );
+  }
+
+  .profileContainer{
+    border-radius: 20px;
+    margin-left: .5%;
+    margin-right: .5%;
+    margin-top: .5%;
+    width: 100%;
+    height: calc( 98vh - 55px );
+    overflow-y: auto;
+  }
+
+  .profileContainer::-webkit-scrollbar {
+    width: 0.5em; /* For Chrome, Safari, and Opera */
+    }
+
+  .profileContainer::-webkit-scrollbar-thumb {
+    background-color: transparent; /* For Chrome, Safari, and Opera */
+  }
+
+  

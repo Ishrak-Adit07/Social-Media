@@ -36,6 +36,12 @@ const OwltweetRouting = () => {
               </div>
             } />
 
+            <Route path="/profile" element={
+              <div>
+                <ProfilePage />
+              </div>
+            } />
+
         </Routes>
 
     </BrowserRouter>
