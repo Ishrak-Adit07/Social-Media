@@ -23,7 +23,6 @@ export const uniqueEmailVerify = async(req, res) =>{
 export const signUp = async(req, res) =>{
     try {
 
-        console.log("Reached Here");
         //New Mail
         user.email = req.body.email;  
 
@@ -55,13 +54,11 @@ export const signUp = async(req, res) =>{
 
         }jsonFriendList += "}";
 
-        /*
         //Insert new user Query
         const insertNewUserQuery = `INSERT INTO accountinfo(userid, username, firstname, lastname, email, "password", profileimage, "location", occupation, viewedprofile, impressions, friends)
                                     VALUES ('${user.userID}', '${user.userName}', '${user.firstName}', '${user.lastName}', '${user.email}', '${user.password}', '${user.profileImage}', '${user.location}', '${user.occupation}', ${user.viewedProfile}, ${user.impressions}, '${jsonFriendList}')
                                     RETURNING *`;
         const insertNewUserQueryResult = await pool.query(insertNewUserQuery);
-        */
         
         //Granting web token for new logged in user
         const token = jwt.sign({ id: user.userID }, process.env.JWT_SECRET_KEY);

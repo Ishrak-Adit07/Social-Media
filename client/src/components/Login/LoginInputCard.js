@@ -32,22 +32,31 @@ const LoginInputCard = () =>{
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(body),
         });
-        const responseData = await response.json();
+        let responseData;
 
-        currentUser.userID = responseData.user.userID;
-        currentUser.userName = responseData.user.userName;
-        currentUser.email = email;
-        currentUser.token = responseData.token;
-        currentUser.firstName = responseData.user.firstName;
-        currentUser.lastName = responseData.user.lastName;
-        currentUser.password = responseData.user.password;
-        currentUser.profileImage = responseData.user.profileImage;
-        currentUser.location = responseData.user.location;
-        currentUser.occupation = responseData.user.occupation;
-        currentUser.friends = responseData.user.friends;
+        if(response.status===201){
 
-        console.log("This is currentUser Information: ")
-        console.log(currentUser);
+          responseData = await response.json();
+
+          currentUser.userID = responseData.user.userID;
+          currentUser.userName = responseData.user.userName;
+          currentUser.email = email;
+          currentUser.token = responseData.token;
+          currentUser.firstName = responseData.user.firstName;
+          currentUser.lastName = responseData.user.lastName;
+          currentUser.password = responseData.user.password;
+          currentUser.profileImage = responseData.user.profileImage;
+          currentUser.location = responseData.user.location;
+          currentUser.occupation = responseData.user.occupation;
+          currentUser.friends = responseData.user.friends;
+  
+          console.log("This is currentUser Information: ")
+          console.log(currentUser);
+
+        }
+        else{
+          console.log("Log in not successful");
+        }
 
     }catch(err){
         console.error(err.message);

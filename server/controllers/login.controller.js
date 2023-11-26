@@ -36,9 +36,10 @@ export const login = async(req, res) =>{
 
             //Granting web token for new logged in user
             const token = jwt.sign({ id: user.userID }, process.env.JWT_SECRET_KEY);
-            user.token = token;
             delete user.password;
 
+            console.log(user);
+            
             //Response with user information
             res.status(201).json( {token, user} );
         }

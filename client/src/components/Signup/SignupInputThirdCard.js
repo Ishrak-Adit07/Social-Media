@@ -41,6 +41,8 @@ const SignupInputThirdCard = () =>{
           headers: {"Content-Type" : "application/json"},
           body: JSON.stringify(body),
         });
+        //delete currentUser.password;
+
         let responseData;
         if(response.status === 201){
           responseData = await response.json();
