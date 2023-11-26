@@ -7,7 +7,7 @@ export default function FeedcardBody(props) {
   return (
     <div className='feedcardBody'>
       
-      <img src={postImage} alt="profileImage" className="feedcardBodyImage" />
+      <img src={postImage} alt="postImage" className="feedcardBodyImage" />
 
     </div>
   )

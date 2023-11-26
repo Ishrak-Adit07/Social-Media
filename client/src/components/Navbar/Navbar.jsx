@@ -54,7 +54,7 @@ export default function Navbar() {
                         <span className="navbarIconBadge">7</span>
                     </div>
 
-                    <img src="assets/hermione.png" alt="profileImage" className="navbarProfileImage" />
+                    <img src={`${currentUser.profileImage}`} alt="profileImage" className="navbarProfileImage" />
                 </div>
 
             </div>

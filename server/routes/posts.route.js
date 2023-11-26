@@ -4,8 +4,8 @@ const router = express.Router();
 
 //Reminder to add verifyToken
 //Creating new post or Deleting post
-router.post("/:userid/createPost", createPost);
-router.delete("/:userid/deletePost", deletePost);
+router.post("/createPost/:userid", createPost);
+router.delete("/deletePost/:userid", deletePost);
 
 //Reminder to add verifyToken
 //Fetching all posts for the feed

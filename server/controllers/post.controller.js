@@ -15,10 +15,9 @@ export const createPost = async(req, res) =>{
         const getUserInfoByIDQueryResult = await pool.query(getUserInfoByIDQuery);
         
         const storeNewPostQuery = `INSERT INTO owlposts
-                                   VALUES ('${postID}', '${userid}', '${getUserInfoByIDQueryResult.rows[0].firstname}', 
-                                   '${getUserInfoByIDQueryResult.rows[0].lastname}', '${location}', '${caption}', 
+                                   VALUES ('${postID}', '${userid}', '${location}', '${caption}', 
                                    '${getUserInfoByIDQueryResult.rows[0].profileImage}', '${postImage}', '{}', '{}', 
-                                   '${postDate}')`;
+                                   '${postDate}', '${getUserInfoByIDQueryResult.rows[0].username}','Gryffindor')`;
         const storeNewPostQueryResult = await pool.query(storeNewPostQuery);
 
         res.status(201).json({userid, postID, postDate});
