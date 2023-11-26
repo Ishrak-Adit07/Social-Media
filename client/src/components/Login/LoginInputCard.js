@@ -1,10 +1,14 @@
 import React, {Fragment, useContext, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import { UserContext } from 'Hooks/UserContext';
+
 import './Login.css';
 
 import { GiOwl } from "react-icons/gi";
 
 const LoginInputCard = () =>{
+
+  const navigate = useNavigate();
     
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState(" ");
@@ -53,6 +57,7 @@ const LoginInputCard = () =>{
           console.log("This is currentUser Information: ")
           console.log(currentUser);
 
+          navigate("/home");
         }
         else{
           console.log("Log in not successful");

@@ -55,7 +55,7 @@ export default function LoginCard() {
     console.log("New user is created");
   }
 
-  const currentUser = user;
+  const {currentUser} = useContext(UserContext);
 
   return (
     <div>

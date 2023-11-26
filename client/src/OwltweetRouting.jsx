@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { UserContext } from 'Hooks/UserContext';
 import 'index.css'
 
 //Importing Scenes 
@@ -10,18 +11,21 @@ import LoginPage from 'scenes/LoginPage/LoginPage';
 //Importing data and models
 import { user } from 'models/user.model';
 
-const currentUser = user;
-
 const OwltweetRouting = () => {
+
+  let currentUser = user;
+
   return (
     <div>
       
+    <UserContext.Provider value={{ currentUser }}>
+
     <BrowserRouter>
 
         <Routes>
 
             <Route path="/" element={
-              <div className='appBG1'>
+              <div className='loginAppWrapper'>
                 <LoginPage />
               </div>
             } />
@@ -35,6 +39,8 @@ const OwltweetRouting = () => {
         </Routes>
 
     </BrowserRouter>
+
+    </UserContext.Provider>
 
     </div>
   )

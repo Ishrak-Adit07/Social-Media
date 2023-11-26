@@ -10,7 +10,7 @@ body,
   font-family: "Rubik", sans-serif;
 }
 
-.appBG1{
+.loginAppWrapper{
   background-image: url('../public/images/CastleWObg.png');
   min-height: 200%;
   opacity: .9;

@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import { UserContext } from 'Hooks/UserContext';
 
 import './Navbar.css';
 
@@ -9,6 +10,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { GiOwl } from "react-icons/gi";
 
 export default function Navbar() {
+    
+    const {currentUser} = useContext(UserContext);
+
   return (
     <div>
       
