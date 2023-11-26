@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
-import '../LoginPage/Login.css';
+import React, {useState, useContext} from 'react';
+import { UserContext } from 'Hooks/UserContext';
+import './Signup.css';
 
 import { GiOwl } from "react-icons/gi";
 
-const SignupInputSecondCard = (props) =>{
+const SignupInputSecondCard = () =>{
     
   const [firstName, setFirstName] = useState(" ");
   const [lastName, setLastName] = useState(" ");
   const [password, setPassword] = useState(" ");
+
+  const {currentUser, backFromSecondSignupDisplay, handleSecondSignupNext} = useContext(UserContext);
 
   const onFirstNameChange = (e) =>{
     setFirstName(e.target.value);
@@ -25,11 +28,11 @@ const SignupInputSecondCard = (props) =>{
     e.preventDefault();
     try{
 
-        props.newUser.firstName = firstName;
-        props.newUser.lastName = lastName;
-        props.newUser.password = password;
+        currentUser.firstName = firstName;
+        currentUser.lastName = lastName;
+        currentUser.password = password;
 
-        props.handleSecondSignupNext();
+        handleSecondSignupNext();
 
     }catch(err){
         console.error(err.message);
@@ -62,7 +65,7 @@ const SignupInputSecondCard = (props) =>{
             </div>
 
             <div className='centerAlign loginButtonField'>
-                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={props.backFromSecondSignupDisplay}>Back</button>
+                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={backFromSecondSignupDisplay}>Back</button>
                 <button type="button" class="btn btn-primary btn-sm registerButton" onClick={recordSecondSignupInfo}>Next</button>
             </div>
         </div>

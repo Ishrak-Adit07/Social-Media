@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
-import '../LoginPage/Login.css';
+import React, {useState, useContext} from 'react';
+import './Signup.css';
 
 import { GiOwl } from "react-icons/gi";
+import { UserContext } from 'Hooks/UserContext';
 
-const SignupInputThirdCard = (props) =>{
+const SignupInputThirdCard = () =>{
     
   const [address, setAddress] = useState(" ");
   const [profession, setProfession] = useState(" ");
+
+  const {currentUser, backFromThirdSignupDisplay, handleThirdSignupNext} = useContext(UserContext);
 
   const onAddressChange = (e) =>{
     setAddress(e.target.value);
@@ -20,18 +23,18 @@ const SignupInputThirdCard = (props) =>{
     e.preventDefault();
     try{
 
-        props.newUser.location = address;
-        props.newUser.occupation = profession;
+        currentUser.location = address;
+        currentUser.occupation = profession;
 
         const body = { 
-          userName : props.newUser.userName,
-          firstName : props.newUser.firstName,
-          lastName : props.newUser.lastName,
-          email : props.newUser.email,
-          password : props.newUser.password,
+          userName : currentUser.userName,
+          firstName : currentUser.firstName,
+          lastName : currentUser.lastName,
+          email : currentUser.email,
+          password : currentUser.password,
           profileImage : "C:\\Users\\ELITE X2\\Desktop\\JS Projects\\Social-Media\\server\\public\\images\\harry.png",
-          location : props.newUser.location,
-          occupation : props.newUser.occupation,
+          location : currentUser.location,
+          occupation : currentUser.occupation,
         };
         const response = await fetch("http://localhost:4000/signup/", {
           method: "POST",
@@ -47,6 +50,7 @@ const SignupInputThirdCard = (props) =>{
     }catch(err){
         console.error(err.message);
     }
+
   }
 
     return (
@@ -68,7 +72,7 @@ const SignupInputThirdCard = (props) =>{
             </div>
 
             <div className='centerAlign loginButtonField'>
-                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={props.backFromThirdSignupDisplay}>Back</button>
+                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={backFromThirdSignupDisplay}>Back</button>
                 <button type="button" class="btn btn-primary btn-sm registerButton" onClick={recordThirdSignupInfo}>Next</button>
             </div>
         </div>

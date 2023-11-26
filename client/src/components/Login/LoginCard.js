@@ -1,4 +1,5 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useContext} from 'react';
+import { UserContext } from 'Hooks/UserContext';
 import './Login.css';
 
 import { GiOwl } from "react-icons/gi";
@@ -6,11 +7,12 @@ import LogoHeader from './LogoHeader';
 import LoginInputCard from './LoginInputCard';
 import LoginCardFooter from './LoginCardFooter';
 
-import SignupInputCard from 'scenes/SignupPage/SignupInputCard';
-import SignupInputSecondCard from 'scenes/SignupPage/SignupInputSecondCard';
-import SignupInputThirdCard from 'scenes/SignupPage/SignupInputThirdCard';
+import SignupInputCard from 'components/Signup/SignupInputCard';
+import SignupInputSecondCard from 'components/Signup/SignupInputSecondCard';
+import SignupInputThirdCard from 'components/Signup/SignupInputThirdCard';
 
-import { user } from './user.model';
+//Data and models
+import { user } from 'models/user.model';
 
 export default function LoginCard() {
 
@@ -49,7 +51,11 @@ export default function LoginCard() {
     setSignupInputThirdDisplay(false);
   }
 
-  const newUser = user;
+  const handleThirdSignupNext = () =>{
+    console.log("New user is created");
+  }
+
+  const currentUser = user;
 
   return (
     <div>
@@ -57,23 +63,19 @@ export default function LoginCard() {
 
             <LogoHeader />
 
+            <UserContext.Provider value={{ currentUser, handleSignUp, backFromFirstSignupDisplay, backFromSecondSignupDisplay, backFromThirdSignupDisplay,
+                                           handleFirstSignupNext, handleSecondSignupNext, handleThirdSignupNext }}>
+
             <div class="container rightAlign cardDesign bigMargin">  
 
-                {loginInputDisplay && <LoginInputCard handleSignUp={handleSignUp}/>}
-                {signupInputFirstDisplay && <SignupInputCard 
-                                             backFromFirstSignupDisplay = {backFromFirstSignupDisplay} 
-                                             handleFirstSignupNext = {handleFirstSignupNext}
-                                             newUser = {newUser}/>}
-                {signupInputSecondDisplay && <SignupInputSecondCard 
-                                               backFromSecondSignupDisplay={backFromSecondSignupDisplay} 
-                                               handleSecondSignupNext={handleSecondSignupNext}
-                                               newUser = {newUser}/>}
-                {signupInputThirdDisplay && <SignupInputThirdCard 
-                                               backFromThirdSignupDisplay={backFromThirdSignupDisplay} 
-                                               handleSecondSignupNext={handleSecondSignupNext}
-                                               newUser = {newUser}/>}
+                {loginInputDisplay && <LoginInputCard />}
+                {signupInputFirstDisplay && <SignupInputCard />}
+                {signupInputSecondDisplay && <SignupInputSecondCard />}
+                {signupInputThirdDisplay && <SignupInputThirdCard />}
                     
             </div>
+
+            </UserContext.Provider>
 
             <LoginCardFooter />
 

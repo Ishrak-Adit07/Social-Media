@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import 'index.css'
 
 //Importing Scenes 
 import ProfilePage from 'scenes/ProfilePage/ProfilePage';
-import LoginCard from 'scenes/LoginPage/LoginCard';
-import Navbar from 'components/Navbar/Navbar';
 import HomePage from 'scenes/HomePage/HomePage';
-import { user } from 'user.model';
+import LoginPage from 'scenes/LoginPage/LoginPage';
+
+//Importing data and models
+import { user } from 'models/user.model';
 
 const currentUser = user;
 
@@ -19,11 +21,16 @@ const OwltweetRouting = () => {
         <Routes>
 
             <Route path="/" element={
-                <div className='appBG'>
-                    <LoginCard />
-                </div>
-            }/>
-            <Route path="/home" element={<HomePage />}/>
+              <div className='appBG1'>
+                <LoginPage />
+              </div>
+            } />
+            
+            <Route path="/home" element={
+              <div>
+                <HomePage />
+              </div>
+            } />
 
         </Routes>
 

@@ -1,12 +1,15 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useContext, useState} from 'react';
+import { UserContext } from 'Hooks/UserContext';
 import './Login.css';
 
 import { GiOwl } from "react-icons/gi";
 
-const LoginInputCard = (props) =>{
+const LoginInputCard = () =>{
     
   const [email, setEmail] = useState(" ");
   const [password, setPassword] = useState(" ");
+
+  const {currentUser, handleSignUp} = useContext(UserContext);
 
   const onEmailChange = (e) =>{
     setEmail(e.target.value);
@@ -30,9 +33,21 @@ const LoginInputCard = (props) =>{
             body: JSON.stringify(body),
         });
         const responseData = await response.json();
-        console.log(responseData);
-        console.log(responseData.token);
-        console.log(responseData.user);
+
+        currentUser.userID = responseData.user.userID;
+        currentUser.userName = responseData.user.userName;
+        currentUser.email = email;
+        currentUser.token = responseData.token;
+        currentUser.firstName = responseData.user.firstName;
+        currentUser.lastName = responseData.user.lastName;
+        currentUser.password = responseData.user.password;
+        currentUser.profileImage = responseData.user.profileImage;
+        currentUser.location = responseData.user.location;
+        currentUser.occupation = responseData.user.occupation;
+        currentUser.friends = responseData.user.friends;
+
+        console.log("This is currentUser Information: ")
+        console.log(currentUser);
 
     }catch(err){
         console.error(err.message);
@@ -59,7 +74,7 @@ const LoginInputCard = (props) =>{
 
             <div className='centerAlign loginButtonField'>
                 <button type="button" class="btn btn-primary btn-sm registerButton" onClick={handleSignIn}>Sign in</button>
-                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={props.handleSignUp}>Sign up</button>
+                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={handleSignUp}>Sign up</button>
             </div>
         </div>
     );

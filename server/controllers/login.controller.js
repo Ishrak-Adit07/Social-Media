@@ -21,8 +21,8 @@ export const login = async(req, res) =>{
         if(!isMatch) res.status(500).json({  msg: "Invalid Credentials" });
         else{
             //Creating user profile for backend
-            user.userID = findUserQueryResult.rows[0].userID;
-            user.userName = findUserQueryResult.rows[0].userName;
+            user.userID = findUserQueryResult.rows[0].userid;
+            user.userName = findUserQueryResult.rows[0].username;
             user.firstName = findUserQueryResult.rows[0].firstname;
             user.lastName = findUserQueryResult.rows[0].lastname;
             user.email = findUserQueryResult.rows[0].email;
@@ -36,6 +36,7 @@ export const login = async(req, res) =>{
 
             //Granting web token for new logged in user
             const token = jwt.sign({ id: user.userID }, process.env.JWT_SECRET_KEY);
+            user.token = token;
             delete user.password;
 
             //Response with user information

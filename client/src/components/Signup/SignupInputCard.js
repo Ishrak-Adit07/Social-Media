@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
-import '../LoginPage/Login.css';
+import React, {useState, useContext} from 'react';
+import { UserContext } from 'Hooks/UserContext';
+import './Signup.css';
 
 import { GiOwl } from "react-icons/gi";
 
-const SignupInputCard = (props) =>{
+const SignupInputCard = () =>{
     
   const [email, setEmail] = useState(" ");
   const [username, setUsername] = useState(" ");
+
+  const {currentUser, backFromFirstSignupDisplay, handleFirstSignupNext} = useContext(UserContext);
 
   const onEmailChange = (e) =>{
     setEmail(e.target.value);
@@ -16,7 +19,7 @@ const SignupInputCard = (props) =>{
     setUsername(e.target.value);
   }
 
-  const verifyEmail = async(e) =>{
+  const verifyUniqueEmail = async(e) =>{
     e.preventDefault();
     try{
 
@@ -34,10 +37,10 @@ const SignupInputCard = (props) =>{
           responseData = await response.json();
           console.log(responseData);
 
-          props.newUser.email = email;
-          props.newUser.userName = username;
+          currentUser.email = email;
+          currentUser.userName = username;
 
-          props.handleFirstSignupNext();
+          handleFirstSignupNext();
         }
 
         else{
@@ -69,8 +72,8 @@ const SignupInputCard = (props) =>{
             </div>
 
             <div className='centerAlign loginButtonField'>
-                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={props.backFromFirstSignupDisplay}>Back</button>
-                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={verifyEmail}>Next</button>
+                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={backFromFirstSignupDisplay}>Back</button>
+                <button type="button" class="btn btn-primary btn-sm registerButton" onClick={handleFirstSignupNext}>Next</button>
             </div>
         </div>
     );
