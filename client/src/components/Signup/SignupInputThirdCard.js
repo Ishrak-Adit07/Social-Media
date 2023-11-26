@@ -1,10 +1,13 @@
 import React, {useState, useContext} from 'react';
+import {useNavigate} from 'react-router-dom';
 import './Signup.css';
 
 import { GiOwl } from "react-icons/gi";
 import { UserContext } from 'Hooks/UserContext';
 
 const SignupInputThirdCard = () =>{
+
+  const navigate = useNavigate();
     
   const [address, setAddress] = useState(" ");
   const [profession, setProfession] = useState(" ");
@@ -47,6 +50,8 @@ const SignupInputThirdCard = () =>{
         if(response.status === 201){
           responseData = await response.json();
           console.log(responseData);
+
+          navigate("/home");
         }
 
     }catch(err){
