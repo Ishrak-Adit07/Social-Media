@@ -3,30 +3,14 @@ import ProfileImage from './ProfileImage';
 import './Profiles.css';
 import ProfileInfo from './ProfileInfo';
 import ProfileHeader from './ProfileHeader';
+import ProfileFeed from './ProfileFeed';
+import Feed from 'components/Feed/Feed';
 
 const Profile = () => {
   return (
     <div>
 
-      <div className="profileHeadWrapper">
-
-        <div className="profileImageContainer">
-            <ProfileImage />
-        </div>
-
-        <div className="profileHeaderContainer">
-            <ProfileHeader />
-        </div>
-
-      </div>
-
-      <div className="profileBodyWrapper">
-
-        <div className="profileInfoContainer">
-            <ProfileInfo />
-        </div>
-
-      </div>
+        <div className='profileFeedContainer'> <Feed /> </div>
 
     </div>
   )

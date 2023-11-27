@@ -6,6 +6,7 @@ import SideBar from 'components/SideBar/SideBar';
 
 import './ProfilePage.css';
 import Profile from 'components/Profiles/Profile';
+import ProfileInfo from 'components/Profiles/ProfileInfo';
 
 
 const ProfilePage = () =>{
@@ -24,7 +25,9 @@ const ProfilePage = () =>{
 
                 <div className='sidebarContainer'> <SideBar /> </div>
 
-                <div className='profileContainer'> <Profile /> </div>
+                <div className='userInfoContainer'> <ProfileInfo /> </div>
+
+                <div className="userProfileContainer"> <Profile /></div>
 
             </div>
 

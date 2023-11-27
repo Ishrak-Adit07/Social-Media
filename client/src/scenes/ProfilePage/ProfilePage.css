@@ -1,6 +1,7 @@
 .profilePageContainer{
     display: flex;
     margin-top: 55px;
+    width: 100%;
 }
 
 .sidebarContainer{
@@ -11,21 +12,32 @@
     height: calc( 98vh - 55px );
   }
 
-  .profileContainer{
+  .userInfoContainer{
+    background: linear-gradient(to right, #c8d7f2, #db6c6c);
     border-radius: 20px;
     margin-left: .5%;
     margin-right: .5%;
     margin-top: .5%;
-    width: 100%;
+    width: 28%;
+    height: calc( 98vh - 55px );
+  }
+
+  .userProfileContainer{
+    background: linear-gradient(to right, #9db8eb, #1c3a73, #9db8eb);
+    border-radius: 20px;
+    margin-left: .5%;
+    margin-right: .5%;
+    margin-top: .5%;
+    width: 50%;
     height: calc( 98vh - 55px );
     overflow-y: auto;
   }
 
-  .profileContainer::-webkit-scrollbar {
+  .userProfileContainer::-webkit-scrollbar {
     width: 0.5em; /* For Chrome, Safari, and Opera */
     }
 
-  .profileContainer::-webkit-scrollbar-thumb {
+  .userProfileContainer::-webkit-scrollbar-thumb {
     background-color: transparent; /* For Chrome, Safari, and Opera */
   }
 
