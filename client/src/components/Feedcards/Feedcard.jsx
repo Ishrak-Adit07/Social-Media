@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Feedcard.css';
 import FeedcardHeader from './FeedcardHeader';
 import FeedcardBody from './FeedcardBody';
 import FeedcardFooter from './FeedcardFooter';
+import { UserContext } from 'Hooks/UserContext';
 
 const FeedCardsInfo = [
   {
@@ -51,10 +52,15 @@ const FeedCardsInfo = [
 
 export default function Feedcard() {
 
+  const {currentUser, user, storyDisplay} = useContext(UserContext);
+
   const getFeedPosts = async() =>{
     try {
+
+      let feedQuery = `http://localhost:4000/posts/feedPosts`;
+      if(!storyDisplay) feedQuery=`http://localhost:4000/posts/userPosts/${currentUser.userID}`;
       
-      const response = await fetch("http://localhost:4000/posts/feedPosts");
+      const response = await fetch(`${feedQuery}`);
       const responseData = await response.json();
   
       if(response.status === 200){

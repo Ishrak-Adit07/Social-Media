@@ -13,7 +13,7 @@ router.get("/feedPosts", getFeedPosts);
 
 //Reminder to add verrifyToken
 //Fetching posts from a certain user
-router.get("/:userid", getUserPosts);
+router.get("/userPosts/:userid", getUserPosts);
 
 //Reminder to add verifyToken
 //Liking or Unliking posts

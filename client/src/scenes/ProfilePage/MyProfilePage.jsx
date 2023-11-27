@@ -10,7 +10,7 @@ import ProfileInfo from 'components/Profiles/ProfileInfo';
 import ProfileHeader from 'components/Profiles/ProfileHeader';
 
 
-const MyProfilePage = (props) =>{
+const MyProfilePage = () =>{
 
     const currentUser = useContext(UserContext);
     let postCardPlaceHolder = "Quill away, "+currentUser.firstName;
