@@ -1,18 +1,22 @@
-import React from 'react'
-import ProfileImage from './ProfileImage';
+import React, {useContext} from 'react'
 import './Profiles.css';
-import ProfileInfo from './ProfileInfo';
-import ProfileHeader from './ProfileHeader';
-import ProfileFeed from './ProfileFeed';
+
+import { UserContext } from 'Hooks/UserContext';
+
 import Feed from 'components/Feed/Feed';
 
 const Profile = () => {
+
+  const {currentUser, user, storyDisplay, postCardPlaceHolder} = useContext(UserContext);
+
   return (
+
     <div>
 
         <div className='profileFeedContainer'> <Feed /> </div>
 
     </div>
+
   )
 }
 

@@ -8,8 +8,6 @@ const ProfileInfo = () => {
 
     <div>
 
-        
-
         <div className="profileInfoWrapper">
 
         <div className="profileImageContainer">

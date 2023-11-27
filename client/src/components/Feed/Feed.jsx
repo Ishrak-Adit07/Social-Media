@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import './Feed.css';
 import Storycard from 'components/Storycards/Storycard';
 import Postcard from 'components/Postcard/Postcard';
@@ -8,15 +8,15 @@ import Feedcard from 'components/Feedcards/Feedcard';
 
 export default function Feed() {
 
-  const {currentUser} = useContext(UserContext);
+  const {currentUser, user, storyDisplay, postCardPlaceHolder} = useContext(UserContext);
 
   return (
     <div>
 
-      <UserContext.Provider value={{ currentUser }}>
+      <UserContext.Provider value={{ currentUser, user, postCardPlaceHolder }}>
 
       <div className='StorycardWrapper'>
-        <Storycard />
+        {storyDisplay && <Storycard />}
       </div>
       <div className='PostcardWrapper'>
         <Postcard postModalID={postModalID}/>

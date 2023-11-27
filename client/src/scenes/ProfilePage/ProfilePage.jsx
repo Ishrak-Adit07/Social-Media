@@ -10,13 +10,19 @@ import ProfileInfo from 'components/Profiles/ProfileInfo';
 import ProfileHeader from 'components/Profiles/ProfileHeader';
 
 
-const ProfilePage = () =>{
+const ProfilePage = (props) =>{
 
     const currentUser = useContext(UserContext);
+    const user = currentUser;
+    let postCardPlaceHolder = "Write something to "+currentUser.firstName;
+    const storyDisplay = false;
+
+    //Better will be to pass the user from here
+    //TBD
 
     return(
 
-        <UserContext.Provider value={{currentUser}}>
+        <UserContext.Provider value={{currentUser, user, storyDisplay, postCardPlaceHolder}}>
         
         <div className="">
 

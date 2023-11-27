@@ -5,7 +5,7 @@ import './Postcard.css';
 
 export default function Postcard(props) {
 
-  const {currentUser} = useContext(UserContext);
+  const {currentUser, postCardPlaceHolder} = useContext(UserContext);
 
   return (
     <div>
@@ -15,7 +15,7 @@ export default function Postcard(props) {
       <div className="postcard">
 
         <button className="postModalButton" data-toggle="modal" data-target={`#${props.postModalID}` } aria-hidden>
-        <h6>Quill away, {currentUser.firstName}</h6>
+        <h6>{postCardPlaceHolder}</h6>
         </button>
 
       </div>

@@ -10,10 +10,14 @@ import RightBar from 'components/RightBar/RightBar';
 const HomePage = () =>{
 
     const {currentUser} = useContext(UserContext);
+    let user = currentUser;
+    const storyDisplay = true;
+    const postCardPlaceHolder = "Quill away,  "+currentUser.firstName;
+
 
     return(
 
-        <UserContext.Provider value={{currentUser}}>
+        <UserContext.Provider value={{currentUser, user, storyDisplay, postCardPlaceHolder}}>
 
         <div className=''> 
 

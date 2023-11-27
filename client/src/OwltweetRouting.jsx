@@ -10,6 +10,7 @@ import LoginPage from 'scenes/LoginPage/LoginPage';
 
 //Importing data and models
 import { user } from 'models/user.model';
+import MyProfilePage from 'scenes/ProfilePage/MyProfilePage';
 
 const OwltweetRouting = () => {
 
@@ -39,6 +40,12 @@ const OwltweetRouting = () => {
             <Route path="/profile" element={
               <div>
                 <ProfilePage />
+              </div>
+            } />
+
+            <Route path="/myProfile" element={
+              <div>
+                <MyProfilePage />
               </div>
             } />
 

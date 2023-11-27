@@ -1,5 +1,5 @@
-import React from 'react';
-import './Storycard.css'
+import React, {useContext} from 'react';
+import './Storycard.css';
 
 export default function Storycard() {
 
