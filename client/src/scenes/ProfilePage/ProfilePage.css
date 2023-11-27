@@ -12,32 +12,52 @@
     height: calc( 98vh - 55px );
   }
 
+  .userProfileHeader{
+    background: linear-gradient(to right, #c8d7f2, #db6c6c);
+    align-items: center;
+    text-align: left;
+    border-radius: 20px;
+    margin-top: 1.5%;
+    margin-bottom: 4%;
+    padding: 5%;
+    padding-bottom: auto;
+    padding-top: auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: calc( 36vh - 55px );
+
+  }
+
   .userInfoContainer{
     background: linear-gradient(to right, #c8d7f2, #db6c6c);
     border-radius: 20px;
     margin-left: .5%;
     margin-right: .5%;
     margin-top: .5%;
-    width: 28%;
+    width: 25%;
     height: calc( 98vh - 55px );
   }
 
   .userProfileContainer{
+    width: 50%;
+  }
+
+  .userProfileFeedContainer{
     background: linear-gradient(to right, #9db8eb, #1c3a73, #9db8eb);
     border-radius: 20px;
     margin-left: .5%;
     margin-right: .5%;
     margin-top: .5%;
-    width: 50%;
-    height: calc( 98vh - 55px );
+    width: 100%;
+    height: calc( 100vh - 55px );
     overflow-y: auto;
   }
 
-  .userProfileContainer::-webkit-scrollbar {
+  .userProfileFeedContainer::-webkit-scrollbar {
     width: 0.5em; /* For Chrome, Safari, and Opera */
     }
 
-  .userProfileContainer::-webkit-scrollbar-thumb {
+  .userProfileFeedContainer::-webkit-scrollbar-thumb {
     background-color: transparent; /* For Chrome, Safari, and Opera */
   }
 

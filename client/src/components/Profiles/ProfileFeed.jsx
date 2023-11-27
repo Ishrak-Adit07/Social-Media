@@ -1,29 +1,11 @@
-import { postModalFragment, postModalID } from 'components/Feed/postModalFragment';
-import Postcard from 'components/Postcard/Postcard';
-import React from 'react';
-import ProfileStat from './ProfileStat';
-import Feedcard from 'components/Feedcards/Feedcard';
-import '../Feed/Feed.css';
-
+import React from 'react'
 
 const ProfileFeed = () => {
   return (
     <div>
-      
-      <div className="profileStats">
-        <ProfileStat />
-      </div>
-
-      <div className='PostcardWrapper'>
-        <Postcard postModalID={postModalID}/>
-      </div>
-      <div className="FeedcardWrapper">
-        <Feedcard />
-      </div>
-
-      {postModalFragment}
+      <h1>Here we will have profile feed</h1>
     </div>
   )
 }
 
-export default ProfileFeed;
+export default ProfileFeed

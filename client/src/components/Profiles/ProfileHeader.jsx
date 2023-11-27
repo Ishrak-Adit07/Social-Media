@@ -1,4 +1,5 @@
 import React from 'react'
+import ProfileStat from './ProfileStat'
 
 const ProfileHeader = () => {
   return (
@@ -16,6 +17,10 @@ const ProfileHeader = () => {
             <p>Lorem, ipsum dolor sit amet <br />
                 consectetur adipisicing elit. <br />
                 ipsum perspiciatis omnis eligendi</p>
+        </div>
+
+        <div className="stats">
+          <ProfileStat />
         </div>
 
     </div>
