@@ -11,12 +11,37 @@ export const getUser = async(req, res) =>{
 
         delete user.password;
         delete findUserByIDQueryResult.rows[0].password;
-        res.status(201).json(findUserByIDQueryResult.rows[0]);
+        res.status(200).json(findUserByIDQueryResult.rows[0]);
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
     }
 }
+
+
+export const getUsersShowInfo = async(req, res) =>{
+    try {
+        
+        const {users} = req.body;
+        const usersShowInfo = [];
+    
+        for(let i=0; i<users.length; i++){
+            const userid = users[i];
+            const findUserByIDQuery = `SELECT * FROM accountinfo 
+                                       WHERE userid = '${userid}'`;
+            const findUserByIDQueryResult = await pool.query(findUserByIDQuery);     
+            
+            delete findUserByIDQueryResult.rows[0].password;
+            console.log(findUserByIDQueryResult.rows);
+            usersShowInfo.push(findUserByIDQueryResult.rows[0]);
+        }
+
+        res.status(200).json(usersShowInfo);
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
 
 export const getUserFriends = async(req, res) =>{
     try {
@@ -39,7 +64,7 @@ export const getUserFriends = async(req, res) =>{
         //res.status(201).json(FriendSPartialInfo);
         */
 
-        res.status(201).json(findFriendsByIDQueryResult.rows);
+        res.status(200).json(findFriendsByIDQueryResult.rows);
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
@@ -54,7 +79,7 @@ export const getUserName = async(req, res) =>{
                                    WHERE userid = '${userid}'`;
         const userNameByIDQueryResult = await pool.query(userNameByIDQuery);
 
-        res.status(201).json(userNameByIDQueryResult.rows[0]);
+        res.status(200).json(userNameByIDQueryResult.rows[0]);
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
@@ -69,7 +94,7 @@ export const getUserProfileImage = async(req, res) =>{
                                     WHERE userid = '${userid}'`;
         const userImageByIDQueryResult = await pool.query(userImageByIDQuery);
 
-        res.status(201).json(userImageByIDQueryResult.rows[0]);
+        res.status(200).json(userImageByIDQueryResult.rows[0]);
 
     } catch (err) {
         res.status(404).json({ msg: err.message });

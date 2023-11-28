@@ -61,7 +61,7 @@
 }
 
 .activeFriendsListItemIcon{
-    font-size: .5%;
-    transform: translate(-600%, 90%);
+    font-size: 0.2%;
+    height: 2%;
     color: lightgreen;
 }
