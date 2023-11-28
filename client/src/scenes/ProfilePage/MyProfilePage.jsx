@@ -12,7 +12,7 @@ import ProfileHeader from 'components/Profiles/ProfileHeader';
 
 const MyProfilePage = () =>{
 
-    const currentUser = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
     let postCardPlaceHolder = "Quill away, "+currentUser.firstName;
     const user = currentUser;
     const storyDisplay = false;

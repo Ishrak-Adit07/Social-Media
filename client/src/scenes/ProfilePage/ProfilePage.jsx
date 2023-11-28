@@ -12,7 +12,7 @@ import ProfileHeader from 'components/Profiles/ProfileHeader';
 
 const ProfilePage = (props) =>{
 
-    const currentUser = useContext(UserContext);
+    const {currentUser} = useContext(UserContext);
     const user = currentUser;
     let postCardPlaceHolder = "Write something to "+currentUser.firstName;
     const storyDisplay = false;

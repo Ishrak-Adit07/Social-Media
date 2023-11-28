@@ -1,4 +1,5 @@
 import React,{useContext} from 'react';
+import {useNavigate} from 'react-router-dom';
 import { UserContext } from 'Hooks/UserContext';
 
 import './SideBar.css';
@@ -8,6 +9,11 @@ import { FaUserGroup } from "react-icons/fa6";
 export default function SideBar() {
 
   const {currentUser} = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const goToCurrentUserProfile = () =>{
+    navigate("/myProfile");
+  }
 
   const userName = "Hermione Granger";
   return (
@@ -16,7 +22,7 @@ export default function SideBar() {
       <div className="sidebarWrapper">
 
         <ul className="sidebarList">
-          <li className="sidebarListItem"><button type="button" class="btn sidebarListItemNameButton"><img src={`${currentUser.profileImage}`} alt="profileImage" className="sidebarProfileImage" />{currentUser.userName}</button></li>
+          <li className="sidebarListItem"><button type="button" class="btn sidebarListItemNameButton" onClick={goToCurrentUserProfile}><img src={`${currentUser.profileImage}`} alt="profileImage" className="sidebarProfileImage" />{currentUser.userName}</button></li>
           <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><FaUserGroup className='sidebarListItemIcon'/>Friends</button></li>
           <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><FaUserGroup className='sidebarListItemIcon'/>Orders</button></li>
           <li className="sidebarListItem"><button type="button" class="btn sidebarListItemButton"><FaUserGroup className='sidebarListItemIcon'/>Diagon Alley</button></li>

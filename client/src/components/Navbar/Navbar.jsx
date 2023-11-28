@@ -1,4 +1,5 @@
 import React,{useContext} from 'react';
+import {useNavigate} from 'react-router-dom';
 import { UserContext } from 'Hooks/UserContext';
 
 import './Navbar.css';
@@ -12,6 +13,11 @@ import { GiOwl } from "react-icons/gi";
 export default function Navbar() {
     
     const {currentUser} = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const goToCurrentUserProfile = () =>{
+      navigate("/myProfile");
+    }
 
   return (
     <div>
@@ -54,7 +60,7 @@ export default function Navbar() {
                         <span className="navbarIconBadge">7</span>
                     </div>
 
-                    <img src={`${currentUser.profileImage}`} alt="profileImage" className="navbarProfileImage" />
+                    <img src={`${currentUser.profileImage}`} alt="profileImage" className="navbarProfileImage" onClick={goToCurrentUserProfile}/>
                 </div>
 
             </div>
