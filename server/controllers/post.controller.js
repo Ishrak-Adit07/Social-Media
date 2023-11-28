@@ -109,4 +109,3 @@ export const unlikePost = async(req, res) =>{
         res.status(404).json({ msg: err.message });
     }
 }
-
