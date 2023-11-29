@@ -1,9 +1,27 @@
 import React from 'react';
 import { FaUserGroup } from "react-icons/fa6";
+import GradeIcon from '@mui/icons-material/Grade';
+import HomeIcon from '@mui/icons-material/Home';
+import GroupIcon from '@mui/icons-material/Group';
 import ProfileImage from './ProfileImage';
 import './Profiles.css';
 
 const ProfileInfo = () => {
+
+  const House = "Gryffindor";
+
+  const specialties = [
+    {
+      "display" : "Transfiguration",
+    },
+    {
+      "display" : "Prefect",
+    },
+    {
+      "display" : "Seeker",
+    }
+  ]
+
   return (
 
     <div>
@@ -15,12 +33,13 @@ const ProfileInfo = () => {
         </div>
 
             <ul className="profileInfoList">
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><FaUserGroup className='profileInfoListItemIcon'/>Friends</button></li>
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><FaUserGroup className='profileInfoListItemIcon'/>Orders</button></li>
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><FaUserGroup className='profileInfoListItemIcon'/>Diagon Alley</button></li>
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><FaUserGroup className='profileInfoListItemIcon'/>Feeds</button></li>
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><FaUserGroup className='profileInfoListItemIcon'/>The Quibbler</button></li>
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><FaUserGroup className='profileInfoListItemIcon'/>Show More</button></li>
+                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><HomeIcon className='profileInfoListItemIcon'/>House</button></li>
+                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><GroupIcon className='profileInfoListItemIcon'/>Orders</button></li>
+                {specialties.map((specialty)=>{
+                  return (
+                    <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><GradeIcon className='profileInfoListItemStarIcon'/>{`${specialty.display}`}</button></li>
+                  );
+                })}
             </ul>
 
         </div>

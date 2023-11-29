@@ -109,3 +109,21 @@ export const unlikePost = async(req, res) =>{
         res.status(404).json({ msg: err.message });
     }
 }
+
+export const postLikers = async(req, res) =>{
+    try {
+        
+        const {postid} = req.params;
+
+        const getPostLikersQuery = `SELECT likers
+                                    FROM owlposts
+                                    WHERE postid = '${postid}'`;
+        const getPostLikersQueryResult = await pool.query(getPostLikersQuery);
+
+        res.status(200).json(getPostLikersQueryResult.rows[0].likers);
+    } catch (err) {
+        res.status(404).json({ msg: err.message });
+    }
+
+
+}

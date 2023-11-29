@@ -37,7 +37,7 @@ const OwltweetRouting = () => {
               </div>
             } />
 
-            <Route path="/profile" element={
+            <Route path="/profile/:user" element={
               <div>
                 <ProfilePage />
               </div>

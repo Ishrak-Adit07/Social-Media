@@ -135,7 +135,16 @@
 }
 
 .profileInfoListItemIcon{
-    margin: 5%;
+    margin: 4%;
+}
+
+.profileInfoListItemStarIcon{
+    margin: 1%;
+    margin-right: 4%;
+    margin-top: 2%;
+    font-size: 90%;
+    color: red;
+    transform: translate(0%, -5%);
 }
 
 .profileFeedContainer{
@@ -147,4 +156,8 @@
 
 .profileFeedContainer{
     width: 100%;
+}
+
+.profileBio{
+    padding-top: 2%;
 }

@@ -1,5 +1,5 @@
 import express from 'express';
-import { createPost, deletePost, getFeedPosts, getUserPosts, likePost, unlikePost } from '../controllers/post.controller';
+import { createPost, deletePost, getFeedPosts, getUserPosts, likePost, postLikers, unlikePost } from '../controllers/post.controller';
 const router = express.Router();
 
 //Reminder to add verifyToken
@@ -17,8 +17,9 @@ router.get("/userPosts/:userid", getUserPosts);
 
 //Reminder to add verifyToken
 //Liking or Unliking posts
+router.get("/likers/:postid", postLikers);
 router.put("/like/:userid", likePost);
-router.put("/unlike/:userid", unlikePost)
+router.put("/unlike/:userid", unlikePost);
 
 
 export default router;

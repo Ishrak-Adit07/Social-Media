@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import { useParams, useLocation } from 'react-router-dom'; 
 import Navbar from "components/Navbar/Navbar";
 
 import { UserContext } from 'Hooks/UserContext';
@@ -13,8 +14,13 @@ import ProfileHeader from 'components/Profiles/ProfileHeader';
 const ProfilePage = (props) =>{
 
     const {currentUser} = useContext(UserContext);
-    const user = currentUser;
-    let postCardPlaceHolder = "Write something to "+currentUser.firstName;
+    const {state} = useLocation();
+    const {profileUser} = state;
+
+    const user = profileUser;
+
+    console.log(user);
+    let postCardPlaceHolder = "Write something to "+user.firstName;
     const storyDisplay = false;
 
     //Better will be to pass the user from here
