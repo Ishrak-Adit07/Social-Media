@@ -27,12 +27,13 @@ export const login = async(req, res) =>{
             user.lastName = findUserQueryResult.rows[0].lastname;
             user.email = findUserQueryResult.rows[0].email;
             user.password = findUserQueryResult.rows[0].password;
+            user.bio = findUserQueryResult.rows[0].bio;
             user.profileImage = findUserQueryResult.rows[0].profileimage;
             user.location = findUserQueryResult.rows[0].location;
             user.occupation = findUserQueryResult.rows[0].occupation;
             user.friends = findUserQueryResult.rows[0].friends;
-            user.viewedProfile = findUserQueryResult.rows[0].viewedprofile;
-            user.impressions = findUserQueryResult.rows[0].impressions;
+            user.specialties = findUserQueryResult.rows[0].specialties;
+
 
             //Granting web token for new logged in user
             const token = jwt.sign({ id: user.userID }, process.env.JWT_SECRET_KEY);

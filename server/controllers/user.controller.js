@@ -130,7 +130,7 @@ export const addNewFriend = async(req, res) =>{
         const addNewFriendQuery1 = `UPDATE accountInfo
                                     SET friends = ARRAY_APPEND(friends, '${newFriendsID}')
                                     WHERE userid = '${userid}'`;
-        const addNewFriendQueryResult1 = await pool.query(addNewFriendQuery);
+        const addNewFriendQueryResult1 = await pool.query(addNewFriendQuery1);
 
         //Enlisting userID as friendID's friend
         const addNewFriendQuery2 = `UPDATE accountInfo

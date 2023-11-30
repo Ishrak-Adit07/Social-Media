@@ -13,11 +13,12 @@ const HomePage = () =>{
     let user = currentUser;
     const storyDisplay = true;
     const postCardPlaceHolder = "Quill away,  "+currentUser.firstName;
+    const feed = "home";
 
 
     return(
 
-        <UserContext.Provider value={{currentUser, user, storyDisplay, postCardPlaceHolder}}>
+        <UserContext.Provider value={{currentUser, user, storyDisplay, postCardPlaceHolder, feed}}>
 
         <div className=''> 
 

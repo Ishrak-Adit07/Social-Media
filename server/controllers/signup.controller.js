@@ -37,9 +37,12 @@ export const signUp = async(req, res) =>{
         user.firstName = req.body.firstName;
         user.lastName = req.body.lastName;
         user.password = passwordHash;
+        user.house = req.body.house;
         user.profileImage = req.body.profileImage;
         user.location = req.body.location;
         user.occupation = req.body.occupation;
+        user.bio = req.body.bio;
+        user.specialties = req.body.specialties;
         user.friends = []; //req.body.friends;
         user.viewedProfile = 0;
         user.impressions = 0; 
@@ -54,9 +57,18 @@ export const signUp = async(req, res) =>{
 
         }jsonFriendList += "}";
 
+        //Modifying specialties to json format for inserting into database
+        let jsonSpecialties = "{";
+        for(let i=0; i<user.specialties.length; i++){
+
+            jsonSpecialties += `"${user.specialties[i]}"`;
+            if(i != user.specialties.length-1) jsonSpecialties += `, `;
+
+        }jsonSpecialties += "}";
+
         //Insert new user Query
-        const insertNewUserQuery = `INSERT INTO accountinfo(userid, username, firstname, lastname, email, "password", profileimage, "location", occupation, viewedprofile, impressions, friends)
-                                    VALUES ('${user.userID}', '${user.userName}', '${user.firstName}', '${user.lastName}', '${user.email}', '${user.password}', '${user.profileImage}', '${user.location}', '${user.occupation}', ${user.viewedProfile}, ${user.impressions}, '${jsonFriendList}')
+        const insertNewUserQuery = `INSERT INTO accountinfo(userid, username, firstname, lastname, house, email, password, profileimage, location, occupation, friends, bio, specialties)
+                                    VALUES ('${user.userID}', '${user.userName}', '${user.firstName}', '${user.lastName}', '${user.house}' , '${user.email}', '${user.password}', '${user.profileImage}', '${user.location}', '${user.occupation}', '${jsonFriendList}', '${user.bio}', '${jsonSpecialties}')
                                     RETURNING *`;
         const insertNewUserQueryResult = await pool.query(insertNewUserQuery);
         

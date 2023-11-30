@@ -53,6 +53,8 @@ const LoginInputCard = () =>{
           currentUser.location = responseData.user.location;
           currentUser.occupation = responseData.user.occupation;
           currentUser.friends = responseData.user.friends;
+          currentUser.bio = responseData.user.bio;
+          currentUser.specialties = responseData.user.specialties;
   
           console.log("This is currentUser Information: ")
           console.log(currentUser);

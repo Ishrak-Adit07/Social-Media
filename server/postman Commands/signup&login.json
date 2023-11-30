@@ -1,13 +1,16 @@
 {
-    "userName": "Cedric Diggory",
-     "firstName" : "Cedric", 
-     "lastName" : "Diggory", 
-     "email" : "cd@huff.com", 
-     "password" : "cdhuff", 
-    "profileImage": "C:\\Users\\ELITE X2\\Desktop\\JS Projects\\Social-Media\\server\\public\\images\\neville.png", 
+    "userName": "Harry Potter",
+     "firstName" : "Harry", 
+     "lastName" : "Potter", 
+     "house" : "Gryffindor",
+     "email" : "hp@gryf.com", 
+     "password" : "hpgryf", 
+    "profileImage": "C:\\Users\\ELITE X2\\Desktop\\JS Projects\\Social-Media\\server\\public\\images\\harry.png", 
     "location" : "london",
     "occupation" : "student", 
     "friends" : [
-        "Neville Longbottom", "Harry Potter", "Luna Lovegood", "Hermione Granger"
-    ]
+        "Neville Longbottom", "Cedric Diggory", "Luna Lovegood", "Hermione Granger"
+    ],
+    "bio" : "Do what is right, not what is easy",
+    "specialties" : ["DADA", "Seeker"]
 }

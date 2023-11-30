@@ -29,6 +29,11 @@ export const user = {
         required : true,
         max : 50
     },
+    house : {
+        type : String,
+        required : true,
+        max : 50
+    },
     profileImage : {
         type : String,
         default : ""
@@ -37,6 +42,11 @@ export const user = {
         type : Array,
         default : []
     },
+    specialties : {
+        type : Array,
+        default : []
+    },
+    bio : String,
     location : String,
     occupation : String,
     viewedProfile : Number,

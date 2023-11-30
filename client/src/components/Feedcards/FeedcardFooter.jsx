@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 export default function FeedcardFooter() {
 
-  const [postID, setPostID] = useState(" ");
+  const [postid, setPostid] = useState(" ");
   const [liked, setLiked] = useState(false);
   const [postLikers, setPostLikers] = useState([]);
 
@@ -15,7 +15,7 @@ export default function FeedcardFooter() {
   const getLikeUpdate = async() =>{
     try {
       
-      const getLikeUpdateQuery = `http://localhost:4000/posts/likers/${postID}`;
+      const getLikeUpdateQuery = `http://localhost:4000/posts/likers/${postid}`;
       const response = await fetch(getLikeUpdateQuery);
 
       if(response.status === 200){
@@ -27,6 +27,10 @@ export default function FeedcardFooter() {
       console.error(err.message)
     }
   }
+
+  useEffect(() => {
+    getLikeUpdate();
+  }, []);
   
   return (
     <div className='feedcardFooter'>

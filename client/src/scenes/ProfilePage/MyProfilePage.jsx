@@ -16,13 +16,14 @@ const MyProfilePage = () =>{
     let postCardPlaceHolder = "Quill away, "+currentUser.firstName;
     const user = currentUser;
     const storyDisplay = false;
+    const feed = "profile";
 
     //Better will be to pass the user from here
     //TBD
 
     return(
 
-        <UserContext.Provider value={{currentUser, user, storyDisplay, postCardPlaceHolder}}>
+        <UserContext.Provider value={{currentUser, user, storyDisplay, postCardPlaceHolder, feed}}>
         
         <div className="">
 

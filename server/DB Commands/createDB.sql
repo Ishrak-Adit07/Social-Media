@@ -6,14 +6,15 @@ CREATE TABLE AccountInfo(
     userName VARCHAR(255),
     firstName VARCHAR(255),
     lastName VARCHAR(255),
+    house VARCHAR(15),
     email VARCHAR(255),
     password VARCHAR(255),
     profileImage VARCHAR(255),
     location VARCHAR(255),
     occupation VARCHAR(255),
-    viewedProfile NUMERIC,
-    impressions NUMERIC,
-    friends VARCHAR[]
+    friends VARCHAR[], 
+    bio VARCHAR(255),
+    specialties VARCHAR[]
 );
 
 CREATE TABLE owlPosts(

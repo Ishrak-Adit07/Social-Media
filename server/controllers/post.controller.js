@@ -59,6 +59,7 @@ export const getUserPosts = async(req, res) =>{
     try {
         
         const {userid} = req.params;
+        console.log(userid);
 
         const getUserPostsQuery = `SELECT * FROM owlposts
                                    WHERE userid = '${userid}'

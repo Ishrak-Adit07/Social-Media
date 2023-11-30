@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Feedcard.css';
 import FeedcardHeader from './FeedcardHeader';
 import FeedcardBody from './FeedcardBody';
 import FeedcardFooter from './FeedcardFooter';
 import { UserContext } from 'Hooks/UserContext';
 
-const FeedCardsInfo = [
+const FeedsCardsInfo = [
   {
     userName : "Ginny Weasley",
     userHouse : "Gryffindor",
@@ -54,17 +54,42 @@ export default function Feedcard() {
 
   const {currentUser, user, storyDisplay} = useContext(UserContext);
 
+  const [FeedCardsInfo, setFeedCardsInfo] = useState([{}]);
+
   const getFeedPosts = async() =>{
     try {
 
-      let feedQuery = `http://localhost:4000/posts/feedPosts`;
-      if(!storyDisplay) feedQuery=`http://localhost:4000/posts/userPosts/${currentUser.userID}`;
+      const feedQuery = `http://localhost:4000/posts/feedPosts`;
+      const userFeedQuery = `http://localhost:4000/posts/userPosts/${currentUser.userID}`;
       
       const response = await fetch(`${feedQuery}`);
-      const responseData = await response.json();
+      const userResponse = await fetch(`${userFeedQuery}`);
   
       if(response.status === 200){
+        const responseData = await response.json();
         console.log(responseData);
+        setFeedCardsInfo(responseData);
+        console.log(FeedCardsInfo);
+      }
+  
+    } catch (err) {
+      console.error(err.meassage);
+    }
+  }
+
+
+  const getProfileFeedPosts = async() =>{
+    try {
+
+      const userFeedQuery = `http://localhost:4000/posts/userPosts/${currentUser.userID}`;
+      
+      const userResponse = await fetch(`${userFeedQuery}`);
+  
+      if(userResponse.status === 200){
+        const responseData = await userResponse.json();
+        console.log(responseData);
+        setFeedCardsInfo(responseData);
+        console.log(FeedCardsInfo);
       }
   
     } catch (err) {
@@ -73,7 +98,8 @@ export default function Feedcard() {
   }
 
   useEffect(()=>{
-    getFeedPosts();
+    if(storyDisplay) getFeedPosts();
+    else getProfileFeedPosts();
   }, []);
 
   return (
@@ -87,9 +113,9 @@ export default function Feedcard() {
             return (
               
               <div className="feedcard">
-                <FeedcardHeader userName={FeedCardInfo.userName} userHouse={FeedCardInfo.userHouse} feedcardProfileImage={FeedCardInfo.feedcardProfileImage}/>
-                <FeedcardBody postImage={FeedCardInfo.postImage}/>
-                <FeedcardFooter userName={FeedCardInfo.userName} userHouse={FeedCardInfo.userHouse} feedcardProfileImage={FeedCardInfo.feedcardProfileImage}/>
+                <FeedcardHeader userName={FeedCardInfo.username} userHouse={FeedCardInfo.house} feedcardProfileImage={FeedCardInfo.profileimage}/>
+                <FeedcardBody postImage={FeedCardInfo.postimage}/>
+                <FeedcardFooter userName={FeedCardInfo.username} userHouse={FeedCardInfo.house} feedcardProfileImage={FeedCardInfo.profileimage}/>
               </div>
 
             );

@@ -85,7 +85,7 @@ const createPostHandler = async() =>{
   return (
     <div>
 
-      <UserContext.Provider value={{ currentUser, user, postCardPlaceHolder }}>
+      <UserContext.Provider value={{ currentUser, user, storyDisplay, postCardPlaceHolder }}>
 
       <div className='StorycardWrapper'>
         {storyDisplay && <Storycard />}
