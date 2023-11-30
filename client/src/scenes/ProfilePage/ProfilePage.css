@@ -38,6 +38,35 @@
     height: calc( 98vh - 55px );
   }
 
+  .Gryffindor{
+    background: -webkit-linear-gradient(red, gold);
+    background-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+.Hufflepuff{
+    background: -webkit-linear-gradient(yellow, yellow);
+    background-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+.Ravenclaw{
+    background: -webkit-linear-gradient(blue, white);
+    background-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+.Slytherin{
+    background: -webkit-linear-gradient(green, silver);
+    background-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
   .userProfileContainer{
     width: 50%;
   }

@@ -17,6 +17,7 @@ const MyProfilePage = () =>{
     const user = currentUser;
     const storyDisplay = false;
     const feed = "profile";
+    const house = "Hufflepuff";
 
     //Better will be to pass the user from here
     //TBD
@@ -33,7 +34,7 @@ const MyProfilePage = () =>{
 
                 <div className='sidebarContainer'> <SideBar /> </div>
 
-                <div className='userInfoContainer'> <ProfileInfo /> </div>
+                <div className={`userInfoContainer`}> <ProfileInfo /> </div>
 
                 <div className='userProfileContainer'>
                     <div className='userProfileHeader'> <ProfileHeader /> </div>

@@ -73,19 +73,50 @@ export const getUserPosts = async(req, res) =>{
     }
 }
 
+export const isLiked = async(req, res)=>{
+    try {
+        const {userid} = req.params;
+        const {postID} = req.body;
+
+        const isLikedQuery = `SELECT * FROM owlposts
+                              WHERE '${userid}' = ANY(likers)
+                              AND postid = '${postID}'`;
+        const isLikedQueryResult = await pool.query(isLikedQuery);
+
+        if(isLikedQueryResult.rows.length >= 1){
+            res.status(201).json(true);
+        }
+        else{
+            res.status(202).json(false);
+        }
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
 export const likePost = async(req, res) =>{
     try {
         
         const {userid} = req.params;
         const {postID, likerID} = req.body;
 
+        const isLikedQuery = `SELECT * FROM owlposts
+                              WHERE '${likerID}' = ANY(likers)
+                              AND postid = '${postID}'`;
+        const isLikedQueryResult = await pool.query(isLikedQuery);
+
+        if(isLikedQueryResult.rows.length == 0){
         const likePostByIDQuery = `UPDATE owlposts
                                    SET likers = ARRAY_APPEND(likers, '${likerID}')
                                    WHERE postid = '${postID}'
                                    AND userid = '${userid}'`;
         const likePostByIDQueryResult = await pool.query(likePostByIDQuery);
 
-        res.status(201).json( {userid, postID, likerID} );
+        res.status(201).json( true );
+        }
+        else{
+            res.status(201).json( false );
+        }
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
@@ -98,13 +129,25 @@ export const unlikePost = async(req, res) =>{
         const {userid} = req.params;
         const {postID, unlikerID} = req.body;
 
+        const isLikedQuery = `SELECT * FROM owlposts
+                              WHERE '${unlikerID}' = ANY(likers)
+                              AND postid = '${postID}'`;
+        const isLikedQueryResult = await pool.query(isLikedQuery);
+
+        if(isLikedQueryResult.rows.length >= 1){
         const unlikePostByIDQuery = `UPDATE owlposts
                                      SET likers = ARRAY_REMOVE(likers, '${unlikerID}')
                                      WHERE postid = '${postID}'
                                      AND userid = '${userid}'`;
         const unlikePostByIDQueryResult = await pool.query(unlikePostByIDQuery);
 
-        res.status(201).json( {userid, postID, unlikerID} );
+        res.status(201).json( true );
+        }
+        else{
+            res.status(201).json( false );
+        }
+
+
 
     } catch (err) {
         res.status(404).json({ msg: err.message });
@@ -121,7 +164,20 @@ export const postLikers = async(req, res) =>{
                                     WHERE postid = '${postid}'`;
         const getPostLikersQueryResult = await pool.query(getPostLikersQuery);
 
-        res.status(200).json(getPostLikersQueryResult.rows[0].likers);
+        const users = getPostLikersQueryResult.rows[0].likers;
+
+        const usersShowInfo = [];
+        for(let i=0; i<users.length; i++){
+            const userid = users[i];
+            const findUserByIDQuery = `SELECT * FROM accountinfo 
+                                       WHERE userid = '${userid}'`;
+            const findUserByIDQueryResult = await pool.query(findUserByIDQuery);     
+            
+            delete findUserByIDQueryResult.rows[0].password;
+            usersShowInfo.push(findUserByIDQueryResult.rows[0]);
+        }
+
+        res.status(200).json(usersShowInfo);
     } catch (err) {
         res.status(404).json({ msg: err.message });
     }

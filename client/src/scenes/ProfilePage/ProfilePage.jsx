@@ -38,7 +38,7 @@ const ProfilePage = (props) =>{
 
                 <div className='sidebarContainer'> <SideBar /> </div>
 
-                <div className='userInfoContainer'> <ProfileInfo /> </div>
+                <div className='userInfoContainer '> <ProfileInfo /> </div>
 
                 <div className='userProfileContainer'>
                     <div className='userProfileHeader'> <ProfileHeader /> </div>

@@ -49,6 +49,7 @@ const LoginInputCard = () =>{
           currentUser.firstName = responseData.user.firstName;
           currentUser.lastName = responseData.user.lastName;
           currentUser.password = responseData.user.password;
+          currentUser.house = responseData.user.house;
           currentUser.profileImage = responseData.user.profileImage;
           currentUser.location = responseData.user.location;
           currentUser.occupation = responseData.user.occupation;

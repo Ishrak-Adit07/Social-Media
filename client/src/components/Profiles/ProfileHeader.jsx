@@ -1,6 +1,6 @@
-import React, {useContext} from 'react'
-import ProfileStat from './ProfileStat'
-import { UserContext } from 'Hooks/UserContext'
+import React, {useContext} from 'react';
+import ProfileStat from './ProfileStat';
+import { UserContext } from 'Hooks/UserContext';
 
 const ProfileHeader = () => {
 
@@ -18,12 +18,10 @@ const ProfileHeader = () => {
         </div>
 
         <div className="profileBio">
-            <p>Lorem, ipsum dolor sit amet <br />
-                consectetur adipisicing elit. <br />
-                ipsum perspiciatis omnis eligendi</p>
+            <p>{user.bio}</p>
         </div>
 
-        <div className="stats">
+        <div className="profileStats">
           <ProfileStat />
         </div>
 

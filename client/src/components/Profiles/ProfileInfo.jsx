@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { UserContext } from 'Hooks/UserContext';
 import { FaUserGroup } from "react-icons/fa6";
 import GradeIcon from '@mui/icons-material/Grade';
 import HomeIcon from '@mui/icons-material/Home';
@@ -8,7 +9,8 @@ import './Profiles.css';
 
 const ProfileInfo = () => {
 
-  const House = "Gryffindor";
+  const {currentUser, user, storyDisplay, postCardPlaceHolder} = useContext(UserContext);
+
 
   const specialties = [
     {
@@ -33,7 +35,7 @@ const ProfileInfo = () => {
         </div>
 
             <ul className="profileInfoList">
-                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><HomeIcon className='profileInfoListItemIcon'/>House</button></li>
+                <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><HomeIcon className='profileInfoListItemIcon'/>{`${user.house}`}</button></li>
                 <li className="profileInfoListItem"><button type="button" class="btn profileInfoListItemButton"><GroupIcon className='profileInfoListItemIcon'/>Orders</button></li>
                 {specialties.map((specialty)=>{
                   return (

@@ -114,8 +114,8 @@ export default function Feedcard() {
               
               <div className="feedcard">
                 <FeedcardHeader userName={FeedCardInfo.username} userHouse={FeedCardInfo.house} feedcardProfileImage={FeedCardInfo.profileimage}/>
-                <FeedcardBody postImage={FeedCardInfo.postimage}/>
-                <FeedcardFooter userName={FeedCardInfo.username} userHouse={FeedCardInfo.house} feedcardProfileImage={FeedCardInfo.profileimage}/>
+                <FeedcardBody postImage={FeedCardInfo.postimage} caption={FeedCardInfo.caption}/>
+                <FeedcardFooter userName={FeedCardInfo.username} postID={FeedCardInfo.postid} userID={FeedCardInfo.userid} currentUserID={currentUser.userID}/>
               </div>
 
             );

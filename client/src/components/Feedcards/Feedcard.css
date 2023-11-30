@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@100;300;400;500;700;900&family=Rubik:wght@400;500;700&display=swap');
+
 .feedcards{
     align-items: center;
     overflow-y: auto;
@@ -30,7 +32,7 @@
 
 .feedcardHeader{
     background-color: rgba(255, 2555, 255, .2);
-    margin-bottom: .5%;
+    margin-bottom: .7%;
     padding-left: 3%;
     padding: .4%;
     text-align: left;
@@ -38,7 +40,20 @@
     align-items: center;
 }
 
-.feedcardBody{
+
+.feedcardbodyCaption{
+    background-color: rgba(255, 2555, 255, .5);
+    font-size: 100%;
+    margin-bottom: .8%;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+    padding-left: 2%;
+    aspect-ratio: 1/.03;
+    font-family: Lato;
+}
+
+.feedcardbodyImage{
     background-color: rgba(255, 2555, 255, .5);
     margin-bottom: 1%;
     width: 100%;
@@ -83,6 +98,7 @@ h6{
     background-color: transparent;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .feedCardLikeButton:hover,
@@ -97,7 +113,37 @@ h6{
     background-color: transparent;
     border: none;
     outline: none;
-    
+    cursor: pointer;
+}
+
+.feedCardLikersButton{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    align-items: center;
+    text-align: left;
+    font-size: 100%;
+    transform: translate(-20%, -10%);
+    cursor: pointer;
+}
+
+.feedCardLikersButton:hover,
+.feedCardLikersButton:focus,
+.feedCardLikersButton:active:focus,
+.feedCardLikersButton.active:focus,
+.feedCardLikersButton.focus,
+.feedCardLikersButton:active.focus,
+.feedCardLikersButton.active.focus,
+.feedCardLikersButton:active{
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    align-items: center;
+    text-align: left;
+    font-size: 100%;
+    transform: translate(-20%, -10%);
+    cursor: pointer;
 }
 
 .likedIcon{
